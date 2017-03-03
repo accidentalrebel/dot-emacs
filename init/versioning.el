@@ -1,5 +1,5 @@
 (use-package magit
-  :config
+  :init
   (if (equal system-type 'gnu/linux)
       (progn
 	(setq exec-path (append exec-path '("/usr/bin/")))
