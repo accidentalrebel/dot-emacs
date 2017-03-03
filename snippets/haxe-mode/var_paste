@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: var paste
+# key: var_paste
+# --
+$3var ${1:`(current-kill 0)`} : ${2:Dynamic}${};
