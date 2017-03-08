@@ -29,7 +29,6 @@
   :diminish (projectile-mode . "")
   :config
   (projectile-mode 1)
-  (projectile-global-mode)
   (setq projectile-completion-system 'helm
 	projectile-indexing-method 'alien
 	projectile-enable-caching t

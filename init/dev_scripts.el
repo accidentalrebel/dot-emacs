@@ -40,6 +40,23 @@
 	   )))
     (message "Should be in a haxe-mode buffer to do this!")))
 
+(defun 2dk-upload-zipped-offline-build-to-gdrive ()
+  "Copies the zipped offline build to the local Google Drive folder."
+  (interactive)
+  (if (eq 'haxe-mode major-mode)
+      (let ((target-directory "c:/Users/ARebel/Google Drive/Mind Cake Games/Chef Wars/Builds/Offline Build")
+	    (zipped-files (f-files (concat (projectile-project-root) "build/offline")
+				   (lambda (file)
+				     (s-matches? ".\\.zip$" file))
+				   nil)))
+	(if zipped-files
+	    (progn
+	      (dolist (zipped-file zipped-files)
+		(copy-file zipped-file target-directory 1))
+	      (message "Successfully copied the zipped offline package to Google Drive"))
+	  (message "There were no zipped files found in the build/offline folder!")))
+    (message "Should be in a haxe-mode buffer to do this!")))
+
 (require 'f)
 (require 's)
 (defun 2dk-remove-ogg-from-build ()
