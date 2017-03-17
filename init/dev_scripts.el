@@ -12,12 +12,31 @@
 (defun 2dk-run-project-debug ()
   "Run the current 2dk project."
   (interactive)
-  (if (not (equal (buffer-name) "*compilation*"))
-      (let ((other-buffer (switch-to-buffer-other-frame "*compilation*")))
-  	(if (not (other-buffer))
-  	    (switch-to-buffer-other-window "*compilation*"))))
+  (if (eq 'haxe-mode major-mode)
+      (progn
+	(2dk-update-project-build-timestamp)
+	(if (not (equal (buffer-name) "*compilation*"))
+	    (let ((other-buffer (switch-to-buffer-other-frame "*compilation*")))
+	      (if (not (other-buffer))
+		  (switch-to-buffer-other-window "*compilation*"))))
 
-  (projectile-run-project "2dk run flash --debug"))
+	(projectile-run-project "2dk run flash --debug"))
+    (message "Should be in a haxe-mode buffer to do this!")))
+
+(defun 2dk-update-project-build-timestamp ()
+  "Updates the timestamp of the current build to the current time."
+  (interactive)
+  (if (eq 'haxe-mode major-mode)
+      (let* ((project-root (projectile-project-root))
+	     (folder-location (concat project-root "/build/web/"))
+	     (file-location (concat project-root "build/web/build_info.txt"))
+	     (timestamp (format-time-string "%Y-%m-%d_%H-%M-%S")))
+	(if (file-directory-p folder-location)
+	    (progn
+	      (write-region timestamp nil file-location 0)
+	      (message "Added the build timestamp: %s" timestamp))
+	  (message "Directory build/web does not exist! Make sure it does.")))
+    (message "Should be in a haxe-mode buffer to do this!")))
 
 (defun 2dk-build-offline-package ()
   "Create the offline package."
