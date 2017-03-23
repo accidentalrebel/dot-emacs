@@ -120,6 +120,12 @@
   (interactive)
   (start-process "cmd" nil "cmd.exe" "/C" "start" "cmd.exe"))
 
+(defun haxe-tools-add-package-line ()
+  "Uses haxe-tools-add-package-line-for-current-buffer and supplies the project root plus the source folder."
+  (interactive)
+  (haxe-tools-add-package-line-for-current-buffer (concat (projectile-project-root) "src/"))
+  )
+
 (global-set-key (kbd "<f5>") '2dk-run-project-debug)
 (global-set-key (kbd "<f6>") '2dk-build-offline-package)
 (global-set-key (kbd "<f7>") 'arebel-haxe-run-hxml)
