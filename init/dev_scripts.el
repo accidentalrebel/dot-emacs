@@ -42,6 +42,7 @@
 	(async-start
 	 `(lambda ()
 	    ,(async-inject-variables "\\`project-root\\'")
+	    (delete-directory (concat project-root "build/offline") t)
 	    (copy-directory (concat project-root "tools/alpha_packager") (concat project-root "build/offline") t t t)
 	    (copy-directory (concat project-root "build/web") (concat project-root "build/offline/package") t t t)
 	    (shell-command (concat "7z a " project-root "build/offline/chefwars_offline_" (format-time-string "%Y-%m-%d_%H-%M-%S")

@@ -158,4 +158,24 @@
   :config
   (async-bytecomp-package-mode 1)
   )
+
+(use-package eshell
+  :config
+  (defun clipboard/set (astring)
+    "Copy a string to clipboard"
+    (with-temp-buffer
+      (insert astring)
+      (clipboard-kill-region (point-min) (point-max))))
+
+  (defun eshell/copy-pwd ()
+    (interactive)
+    (clipboard/set (eshell/pwd))
+    (message (concat "Copied path: " (eshell/pwd)) ))
+
+  (defun eshell/copy-fpath (fname)
+    (interative)
+    (let ((fpath (concat (eshell/pwd) "/" fname)))
+      (clipboard/set fpath)
+      (message "Copied path: " fpath))) 
+  )
 ;;; tools.el ends here
