@@ -19,10 +19,10 @@
 	 ("M-y" . helm-show-kill-ring)
 	 ("C-c h o" . helm-occur)
 	 ("C-c h a" . helm-apropos)
-	 :map (helm-map
+	 :map helm-map
 	       ("<tab>" . helm-execute-persistent-action)
 	       ("C-i" . helm-select-action)
-	       ("C-z" . helm-select-action))))
+	       ("C-z" . helm-select-action)))
 
 (use-package helm-config)
 (use-package helm-projectile
