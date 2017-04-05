@@ -37,6 +37,7 @@
 (depends-on "monky")
 (depends-on "multiple-cursors")
 (depends-on "nyan-mode")
+(depends-on "org-journal")
 (depends-on "package-build")
 (depends-on "package-lint")
 (depends-on "pallet")

@@ -7,9 +7,15 @@
   (add-hook 'org-agenda-mode-hook (lambda()
   				    (bind-key "P" 'org-pomodoro org-agenda-mode-map)))
   :config
-  (setq org-directory (expand-file-name "C:/Users/ARebel/Dropbox/orgmode")
-  	org-default-notes-file (expand-file-name "C:/Users/ARebel/Dropbox/orgmode/uncategorized.org")
-  	org-journal-dir (expand-file-name "C:/Users/ARebel/Dropbox/orgmode/journal")
+  (setq org-directory (if (eq system-type 'gnu/linux)
+			  (expand-file-name "~/Dropbox/orgmode")
+			(expand-file-name "C:/Users/ARebel/Dropbox/orgmode"))
+  	org-default-notes-file (if (eq system-type 'gnu/linux)
+				   (expand-file-name "~/Dropbox/orgmode/uncategorized.org")
+				 (expand-file-name "C:/Users/ARebel/Dropbox/orgmode/uncategorized.org"))
+  	org-journal-dir (if (eq system-type 'gnu/linux)
+			    (expand-file-name "~/Dropbox/orgmode/journal")
+			  (expand-file-name "C:/Users/ARebel/Dropbox/orgmode/journal"))
   	org-agenda-files (list (concat org-directory "/todos/"))
   	org-refile-targets '((org-agenda-files . (:maxlevel . 6)))
   	org-agenda-window-setup 'current-window
