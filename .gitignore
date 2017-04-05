@@ -25,3 +25,4 @@
 /init/personal_scripts.el
 /dev/emacs-dokuwiki/*
 /network-security.data
+/session.*
