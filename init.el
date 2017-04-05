@@ -14,6 +14,7 @@
 (cask-initialize)
 (require 'pallet)
 (pallet-mode 1)
+(require 'use-package)
 
 ;; I have placed certain chunks of init on different .el files
 ;; This is to avoid having a really long .emacs file
@@ -62,7 +63,7 @@
      (search category-keep))))
  '(package-selected-packages
    (quote
-    (haxe-mode helm-projectile golden-ratio auto-complete tomatinho flycheck-package keyfreq ido-vertical-mode restart-emacs helm evil-visual-mark-mode php-mode f 2048-game smart-mode-line doom-themes ag ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode xml-rpc haxe-imports helm-ag evil-smartparens org-journal monky magit evil better-defaults ##)))
+    (with-editor yasnippet pallet php-mode f 2048-game smart-mode-line doom-themes ag ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode xml-rpc haxe-imports helm-ag evil-smartparens org-journal monky magit evil better-defaults ##)))
  '(send-mail-function nil)
  '(vc-annotate-background "#181e26")
  '(vc-annotate-color-map
