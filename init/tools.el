@@ -3,9 +3,9 @@
   (evil-mode 1)
   )
 
-(use-package rainbow-delimiters-mode
-  :init
-  (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode))
+(use-package rainbow-delimiters
+   :init
+   (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode))
 
 (use-package yasnippet
   :diminish (yas-minor-mode . "")
@@ -30,15 +30,17 @@
 
 (use-package bind-key)
 
+(use-package evil-smartparens
+  :diminish (evil-smartparens-mode . "")
+  :config
+  (evil-smartparens-mode))
+
 (use-package smartparens-config
   :diminish (smartparens-mode . "")
   :config
   (add-hook 'emacs-lisp-mode-hook #'smartparens-mode)
   (add-hook 'haxe-mode-hook #'smartparens-mode)
   (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode))
-
-(use-package evil-smartparens
-  :diminish (evil-smartparens-mode . ""))
 
 (use-package auto-complete
   :diminish (auto-complete-mode . ""))
@@ -49,8 +51,9 @@
 (use-package golden-ratio
   :diminish (golden-ratio-mode . "")
   :config
-  (golden-ratio-mode 1)
+  (golden-ratio-mode)
 
+  (add-to-list 'golden-ratio-extra-commands 'ace-window)
   (add-to-list 'golden-ratio-inhibit-functions 'pl/helm-alive-p)
 
   (defun pl/helm-alive-p ()
@@ -65,8 +68,6 @@
   (global-flycheck-mode)
   (eval-after-load 'flycheck
     '(flycheck-package-setup)))
-
-(use-package buffer-move)
 
 (use-package keyfreq
   :config
@@ -149,10 +150,6 @@
   :bind (("C-c j" . open-junk-file)))
 
 (use-package restart-emacs)
-
-(use-package golden-ratio
-  :config
-  (add-to-list 'golden-ratio-extra-commands 'ace-window))
 
 (use-package async
   :config

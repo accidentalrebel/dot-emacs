@@ -1,18 +1,19 @@
 ;;; init.el -- My init file
 ;;; Commentary:
 ;;; Code:
-(require 'package)
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
 
 (prefer-coding-system 'utf-8)
 
-(setq package-enable-at-startup nil)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-(package-initialize)
-
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+(require 'pallet)
+(pallet-mode 1)
 
 ;; I have placed certain chunks of init on different .el files
 ;; This is to avoid having a really long .emacs file
@@ -22,11 +23,11 @@
 (load "~/.emacs.d/init/versioning")
 (load "~/.emacs.d/init/tools")
 (load "~/.emacs.d/init/keybindings")
-(load "~/.emacs.d/init/personal_scripts")
-(load "~/.emacs.d/init/personal_config")
 (load "~/.emacs.d/init/org_mode")
 (load "~/.emacs.d/init/dev_scripts")
-(load "~/.emacs.d/haxe-tools/haxe-tools")
+;(load "~/.emacs.d/init/personal_scripts")
+;(load "~/.emacs.d/init/personal_config")
+;(load "~/.emacs.d/haxe-tools/haxe-tools")
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -61,7 +62,7 @@
      (search category-keep))))
  '(package-selected-packages
    (quote
-    (php-mode f 2048-game smart-mode-line doom-themes ag ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode xml-rpc haxe-imports helm-ag evil-smartparens org-journal monky magit evil better-defaults ##)))
+    (haxe-mode helm-projectile golden-ratio auto-complete tomatinho flycheck-package keyfreq ido-vertical-mode restart-emacs helm evil-visual-mark-mode php-mode f 2048-game smart-mode-line doom-themes ag ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode xml-rpc haxe-imports helm-ag evil-smartparens org-journal monky magit evil better-defaults ##)))
  '(send-mail-function nil)
  '(vc-annotate-background "#181e26")
  '(vc-annotate-color-map
