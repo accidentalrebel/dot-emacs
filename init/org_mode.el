@@ -1,5 +1,5 @@
 (use-package org
-  :mode ("\\.org\\'" . org-mode)
+  :mode ("\\.org\\'" . org-mode)
   :interpreter ("org" . org-mode)
   :init
   (add-hook 'org-mode-hook (lambda()

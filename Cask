@@ -50,6 +50,7 @@
 (depends-on "restart-emacs")
 (depends-on "s")
 (depends-on "shut-up")
+(depends-on "slack")
 (depends-on "smart-mode-line")
 (depends-on "smartparens")
 (depends-on "smex")
