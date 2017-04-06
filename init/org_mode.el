@@ -1,5 +1,5 @@
 (use-package org
-  :mode ("\\.org\\'" . org-mode)
+  :mode ("\\.org\\'" . org-mode)
   :interpreter ("org" . org-mode)
   :init
   (add-hook 'org-mode-hook (lambda()
@@ -9,7 +9,7 @@
   :config
   (setq org-directory (if (eq system-type 'gnu/linux)
 			  (expand-file-name "~/Dropbox/orgmode")
-			(expand-file-name user--win-dropbox-orgmode-folder))
+			(expand-file-name user--win-dropbox-folder))
   	org-default-notes-file (if (eq system-type 'gnu/linux)
 				   (expand-file-name "~/Dropbox/orgmode/uncategorized.org")
 				 (expand-file-name (concat user--win-dropbox-folder "orgmode/uncategorized.org")))

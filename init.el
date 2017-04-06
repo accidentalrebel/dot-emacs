@@ -7,6 +7,10 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 (package-initialize)
+(add-to-list 'package-archives
+  '("melpa" . "http://melpa.milkbox.net/packages/"))
+(setq load-prefer-newer t)
+
 
 (prefer-coding-system 'utf-8)
 

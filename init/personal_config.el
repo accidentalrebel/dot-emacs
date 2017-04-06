@@ -16,7 +16,7 @@
 
 (use-package dokuwiki
   :config
-  (setq dokuwiki-xml-rpc-url user--gamedevph-xmlrpc-url 
+  (setq dokuwiki-xml-rpc-url user--gamedevph-xmlrpc-url
 	dokuwiki-login-user-name user--gamedevph-username)
   )
 
