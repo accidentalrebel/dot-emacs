@@ -1,7 +1,0 @@
-;; For the purpose of modularity and easy separation of personal data
-;; you can put your personal configurations here.
-;; The files pointed to by the files below are not included in the repo
-;; Create your own files or comment out the lines below
-
-(load "~/../personal_config/orgmode_config")
-

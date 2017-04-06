@@ -3,6 +3,7 @@
 (source gnu)
 (source melpa)
 
+(depends-on "ace-window")
 (depends-on "async")
 (depends-on "auto-complete")
 (depends-on "bind-key")

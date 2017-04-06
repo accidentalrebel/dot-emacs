@@ -27,8 +27,8 @@
 (load "~/.emacs.d/init/org_mode")
 (load "~/.emacs.d/init/dev_scripts")
 (load "~/.emacs.d/dev/haxe-tools/haxe-tools")
-;(load "~/.emacs.d/init/personal_scripts")
-;(load "~/.emacs.d/init/personal_config")
+(load "~/.emacs.d/init/personal_scripts")
+(load "~/.emacs.d/init/personal_config")
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
