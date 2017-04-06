@@ -131,6 +131,11 @@
 	      ("C-k" . evil-scroll-up)
 	      ("C-j" . evil-scroll-down)))
 
+(use-package which-key
+  :diminish (which-key-mode . "")
+  :config
+  (which-key-mode))
+
 (use-package alert
   :commands (alert)
   :init

@@ -66,7 +66,7 @@
      (search category-keep))))
  '(package-selected-packages
    (quote
-    (ag with-editor yasnippet pallet php-mode f 2048-game smart-mode-line doom-themes ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode xml-rpc haxe-imports helm-ag evil-smartparens org-journal monky magit evil better-defaults ##)))
+    (which-key ag with-editor yasnippet pallet php-mode f 2048-game smart-mode-line doom-themes ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode xml-rpc haxe-imports helm-ag evil-smartparens org-journal monky magit evil better-defaults ##)))
  '(send-mail-function nil)
  '(vc-annotate-background "#181e26")
  '(vc-annotate-color-map
