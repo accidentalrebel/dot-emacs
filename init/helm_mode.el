@@ -27,14 +27,12 @@
 	       ("C-z" . helm-select-action)))
 
 (use-package projectile
-  :config
-  (projectile-global-mode)
-  )
-
-(use-package helm-projectile
   :diminish (projectile-mode . "")
   :config
+  (projectile-mode))
 
+(use-package helm-projectile
+  :config
   (setq projectile-completion-system 'helm
 	projectile-indexing-method 'alien
 	projectile-enable-caching t

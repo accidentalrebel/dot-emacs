@@ -9,13 +9,13 @@
   :config
   (setq org-directory (if (eq system-type 'gnu/linux)
 			  (expand-file-name "~/Dropbox/orgmode")
-			(expand-file-name "C:/Users/ARebel/Dropbox/orgmode"))
+			(expand-file-name user--win-dropbox-orgmode-folder))
   	org-default-notes-file (if (eq system-type 'gnu/linux)
 				   (expand-file-name "~/Dropbox/orgmode/uncategorized.org")
-				 (expand-file-name "C:/Users/ARebel/Dropbox/orgmode/uncategorized.org"))
+				 (expand-file-name (concat user--win-dropbox-folder "orgmode/uncategorized.org")))
   	org-journal-dir (if (eq system-type 'gnu/linux)
 			    (expand-file-name "~/Dropbox/orgmode/journal")
-			  (expand-file-name "C:/Users/ARebel/Dropbox/orgmode/journal"))
+			  (expand-file-name  (concat user--win-dropbox-folder "orgmode/journal"))
   	org-agenda-files (list (concat org-directory "/todos/"))
   	org-refile-targets '((org-agenda-files . (:maxlevel . 6)))
   	org-agenda-window-setup 'current-window

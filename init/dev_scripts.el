@@ -59,7 +59,7 @@
   "Copies the zipped offline build to the local Google Drive folder."
   (interactive)
   (if (eq 'haxe-mode major-mode)
-      (let ((target-directory "c:/Users/ARebel/Google Drive/Mind Cake Games/Chef Wars/Builds/Offline Build")
+      (let ((target-directory user--win-gdrive-folder)
 	    (zipped-files (f-files (concat (projectile-project-root) "build/offline")
 				   (lambda (file)
 				     (s-matches? ".\\.zip$" file))

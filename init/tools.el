@@ -3,6 +3,8 @@
   (evil-mode 1)
   )
 
+(use-package ag)
+
 (use-package rainbow-delimiters
    :init
    (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode))

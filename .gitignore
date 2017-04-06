@@ -27,3 +27,4 @@
 /network-security.data
 /session.*
 /dev/haxe-tools/*
+/user.el

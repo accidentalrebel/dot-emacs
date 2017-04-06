@@ -4,6 +4,7 @@
 (source melpa)
 
 (depends-on "ace-window")
+(depends-on "ag")
 (depends-on "async")
 (depends-on "auto-complete")
 (depends-on "bind-key")
@@ -27,6 +28,7 @@
 (depends-on "haxe-imports")
 (depends-on "haxe-mode")
 (depends-on "helm")
+(depends-on "helm-ag")
 (depends-on "helm-core")
 (depends-on "helm-projectile")
 (depends-on "htmlize")
@@ -39,6 +41,7 @@
 (depends-on "multiple-cursors")
 (depends-on "nyan-mode")
 (depends-on "org-journal")
+(depends-on "org2blog")
 (depends-on "package-build")
 (depends-on "package-lint")
 (depends-on "pallet")

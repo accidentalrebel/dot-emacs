@@ -7,8 +7,8 @@
 	)
     (progn
       (setenv "SSH_ASKPASS" "git-gui--askpass")
-      (setq magit-git-executable "C:/development/tools/git/bin/git.exe")
-      (add-to-list 'exec-path "C:/development/tools/git/bin")
+      (setq magit-git-executable (concat user--win-git-folder "git.exe"))
+      (add-to-list 'exec-path (concat user--win-git-folder "C:/development/tools/git/bin"))
       )
     )
   :bind
