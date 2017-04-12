@@ -26,3 +26,5 @@
 /session.*
 /dev/haxe-tools/*
 /user.el
+/dev/tic-tac-toe/
+/dev/emacs-haxe-imports/

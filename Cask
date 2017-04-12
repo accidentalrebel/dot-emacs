@@ -23,6 +23,7 @@
 (depends-on "flycheck")
 (depends-on "flycheck-cask")
 (depends-on "flycheck-package")
+(depends-on "free-keys")
 (depends-on "git-commit")
 (depends-on "golden-ratio")
 (depends-on "goto-chg")

@@ -26,9 +26,9 @@
 (keyboard-translate ?\C-x ?\C-b)
 (keyboard-translate ?\C-b ?\C-x)
 
-(global-unset-key (kbd "C-x c"))
+;; (global-unset-key (kbd "C-x c"))
 
-(bind-key "C-x c c" 'save-buffers-kill-terminal)
-(global-unset-key (kbd "C-x C-c"))
+;; (bind-key "C-x c c" 'save-buffers-kill-terminal)
+;; (global-unset-key (kbd "C-x C-c"))
 
 (defvar arebel-custom-key-map nil "Custom personal key map")

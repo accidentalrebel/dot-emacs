@@ -9,7 +9,7 @@
   :config
   (setq org-directory (if (eq system-type 'gnu/linux)
 			  (expand-file-name "~/Dropbox/orgmode")
-			(expand-file-name user--win-dropbox-folder))
+			(expand-file-name (concat user--win-dropbox-folder "orgmode/")))
   	org-default-notes-file (if (eq system-type 'gnu/linux)
 				   (expand-file-name "~/Dropbox/orgmode/uncategorized.org")
 				 (expand-file-name (concat user--win-dropbox-folder "orgmode/uncategorized.org")))
