@@ -127,6 +127,28 @@
   (haxe-tools-add-package-line-for-current-buffer (concat (projectile-project-root) "src/"))
   )
 
+(defun devenv-smart-open-elisp-output-window (buffer)
+  "A helper that opens BUFFER for output.
+Useful for quick devving with elisp."
+  (if (get-buffer-window buffer)
+      (switch-to-buffer-other-window buffer)
+    (if (get-buffer-window buffer t)
+	(switch-to-buffer-other-frame buffer)
+      (switch-to-buffer-other-window buffer))))
+
+(defun devenv-setup-build-keys (to-call-on-build)
+  "A helper that set the keys for quick elisp devving.
+Pressing F5 calls calls TO-CALL-ON-BUILD.
+Pressing F6 runs ert-runner."
+  (local-set-key (kbd "<f5>") `(lambda ()
+				(interactive)
+				(save-buffer)
+				(eval-buffer)
+				(funcall ',to-call-on-build)))
+  (local-set-key (kbd "<f6>") (lambda ()
+				(interactive)
+				(shell-command "cask exec ert-runner"))))
+
 (global-set-key (kbd "<f5>") '2dk-run-project-debug)
 (global-set-key (kbd "<f6>") '2dk-build-offline-package)
 (global-set-key (kbd "<f7>") 'arebel-haxe-run-hxml)
