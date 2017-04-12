@@ -42,7 +42,12 @@
   :config
   (add-hook 'emacs-lisp-mode-hook #'smartparens-mode)
   (add-hook 'haxe-mode-hook #'smartparens-mode)
-  (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode))
+  (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)
+  :bind (("C-}" . sp-forward-slurp-sexp)
+	 ("C-{" . sp-backward-slurp-sexp)
+	 ("C-(" . sp-raise-sexp)
+	 ("C-#" . sp-forward-barf-sexp)
+	 ("C-!" . sp-backward-barf-sexp)))
 
 (use-package auto-complete
   :diminish (auto-complete-mode . ""))
