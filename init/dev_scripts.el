@@ -127,14 +127,15 @@
   (haxe-tools-add-package-line-for-current-buffer (concat (projectile-project-root) "src/"))
   )
 
-(defun devenv-smart-open-elisp-output-window (buffer)
+(defun devenv-smart-open-elisp-output-window (buffer-name)
   "A helper that opens BUFFER for output.
 Useful for quick devving with elisp."
-  (if (get-buffer-window buffer)
-      (switch-to-buffer-other-window buffer)
-    (if (get-buffer-window buffer t)
-	(switch-to-buffer-other-frame buffer)
-      (switch-to-buffer-other-window buffer))))
+  (let ((buffer (get-buffer-create "*tic-tac-toe*")))
+    (if (and buffer (get-buffer-window buffer))
+	(switch-to-buffer-other-window buffer)
+      (if (and (get-buffer-window buffer t))
+	  (switch-to-buffer-other-frame buffer)
+	(switch-to-buffer-other-window buffer)))))
 
 (defun devenv-setup-build-keys (to-call-on-build)
   "A helper that set the keys for quick elisp devving.
