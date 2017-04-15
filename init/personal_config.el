@@ -48,4 +48,10 @@
   (setenv "desktop" (concat user--win-arebel-home-folder "Desktop"))
   (setenv "chefwars" user--win-chefwars-folder))
 
+(setq user-mail-address user--email	
+	  user-full-name user--full-name)
+
+(setq gnus-select-method '(nnnil ""))
+(setq gnus-secondary-select-methods '((nntp "news.gmane.org") (nntp "news.gnus.org")))
+
 (defvar arebel-custom-key-map nil "My custom keymap.")

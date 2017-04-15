@@ -1,8 +1,3 @@
-(use-package evil
-  :config
-  (evil-mode 1)
-  )
-
 (use-package ag)
 
 (use-package rainbow-delimiters
@@ -18,7 +13,7 @@
 	      ("<tab>" . nil)
 	      ("TAB" . nil)
 	      ("<backtab>" . yas-expand)
-	      ("C-c TAB" . yas-expand)))
+	      ("C-c TAB" . yas|||-expand)))
 
 (use-package auto-complete-config
   :config
@@ -131,7 +126,7 @@
 
 (use-package evil
   :config
-  (evil-mode 1)
+  ;; (evil-mode 1)
   :bind ( :map evil-normal-state-map
 	      ("C-k" . evil-scroll-up)
 	      ("C-j" . evil-scroll-down)))
