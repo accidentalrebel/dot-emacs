@@ -45,6 +45,7 @@
 (depends-on "nyan-mode")
 (depends-on "open-junk-file")
 (depends-on "org-journal")
+(depends-on "org-page")
 (depends-on "org2blog")
 (depends-on "package-build")
 (depends-on "package-lint")
@@ -69,4 +70,5 @@
 (depends-on "web-mode")
 (depends-on "which-key")
 (depends-on "with-editor")
+(depends-on "xah-fly-keys")
 (depends-on "yasnippet")

@@ -14,6 +14,12 @@
 				    :username "admin"))))
   )
 
+(use-package org-page
+  :init
+  (setq op/repository-directory (concat user--linux-dropbox-folder "orgmode/blog"))
+  (setq op/site-domain "http://blog.accidentalrebel.com/")
+  )
+
 (use-package dokuwiki
   :config
   (setq dokuwiki-xml-rpc-url user--gamedevph-xmlrpc-url

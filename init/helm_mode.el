@@ -21,6 +21,7 @@
 	 ("M-y" . helm-show-kill-ring)
 	 ("C-c h o" . helm-occur)
 	 ("C-c h a" . helm-apropos)
+	 ("C-c h b" . helm-resume)
 	 :map helm-map
 	       ("<tab>" . helm-execute-persistent-action)
 	       ("C-i" . helm-select-action)
