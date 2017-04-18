@@ -5,8 +5,10 @@
 
 (depends-on "ace-window")
 (depends-on "ag")
+(depends-on "all-the-icons")
 (depends-on "async")
 (depends-on "auto-complete")
+(depends-on "avy")
 (depends-on "bind-key")
 (depends-on "cask")
 (depends-on "dash")
@@ -71,5 +73,4 @@
 (depends-on "web-mode")
 (depends-on "which-key")
 (depends-on "with-editor")
-(depends-on "xah-fly-keys")
 (depends-on "yasnippet")
