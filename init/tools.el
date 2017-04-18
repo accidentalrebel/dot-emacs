@@ -182,4 +182,5 @@
       (clipboard/set fpath)
       (message "Copied path: " fpath))) 
   )
+
 ;;; tools.el ends here
