@@ -1,4 +1,6 @@
 ;;; Code:
+(global-set-key [remap dabbrev-expand] 'hippie-expand)
+
 ;; Global bindings
 (bind-key "C-c b" 'eval-buffer)
 
