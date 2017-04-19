@@ -27,17 +27,11 @@
 
 (use-package bind-key)
 
-(use-package evil-smartparens
-  :diminish (evil-smartparens-mode . "")
-  :config
-  (evil-smartparens-mode))
-
 (use-package smartparens-config
   :diminish (smartparens-mode . "")
-  :config
+  :init
   (add-hook 'emacs-lisp-mode-hook #'smartparens-mode)
   (add-hook 'haxe-mode-hook #'smartparens-mode)
-  (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)
   :bind (("C-}" . sp-forward-slurp-sexp)
 	 ("C-{" . sp-backward-slurp-sexp)
 	 ("C-(" . sp-raise-sexp)
@@ -92,23 +86,7 @@
 	  sp-backward-delete-char
 	  delete-backward-char
 	  helm-previous-line
-	  helm-next-line
-	  evil-forward-word-begin
-	  evil-forward-word-end
-	  evil-backward-word-begin
-	  evil-backward-word-end
-	  evil-forward-char
-	  evil-backward-char
-	  evil-tree-undo
-	  evil-delete-char
-	  evil-replace
-	  evil-insert
-	  evil-delete
-	  evil-visual-line
-	  evil-normal-state
-	  ewil-paste-after
-	  evil-previous-line
-	  evil-next-line))
+	  helm-next-line))
   (keyfreq-mode 1)
   (keyfreq-autosave-mode 1))
 
@@ -123,13 +101,6 @@
   :config
   (ido-vertical-mode 1)
   (setq ido-vertical-define-keys 'C-n-and-C-p-only))
-
-(use-package evil
-  :config
-  ;; (evil-mode 1)
-  :bind ( :map evil-normal-state-map
-	      ("C-k" . evil-scroll-up)
-	      ("C-j" . evil-scroll-down)))
 
 (use-package which-key
   :diminish (which-key-mode . "")
