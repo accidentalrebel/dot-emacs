@@ -1,4 +1,7 @@
 (use-package ag)
+(use-package elmacro
+  :config
+  (elmacro-mode))
 
 (use-package rainbow-delimiters
    :init
