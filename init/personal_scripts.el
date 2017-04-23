@@ -1,4 +1,4 @@
-(defun arebel-putty-connect-linode-zuko ()
+ (defun arebel-putty-connect-linode-zuko ()
   (interactive)
   (start-process "putty" nil "putty.exe" "-load" "LinodeARebel" user--linode-zuko-connect-url))
 
@@ -26,7 +26,7 @@
   (interactive)
   (if (eq 'org-journal-mode major-mode)
       (let* ((headline-text (nth 4 (org-heading-components)))
-	     (post-title (nth 1 (split-string headline-text " - ")))
+	     (post-title (mapconcat 'identity (cdr (split-string headline-text " - ")) " - "))
 	     (date-string (car (split-string headline-text " - ")))
 	     (entry-text (org-get-entry)))
 	(op/new-post "blog" (replace-regexp-in-string " " "-" (replace-regexp-in-string "-" "" date-string)))

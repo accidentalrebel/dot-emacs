@@ -3,6 +3,13 @@
   :config
   (elmacro-mode))
 
+(use-package twittering-mode
+  :config
+  (setq twittering-use-master-password t)
+  (setq twittering-icon-mode t)
+  (setq twittering-use-icon-storage t)
+  )
+
 (use-package rainbow-delimiters
    :init
    (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode))
