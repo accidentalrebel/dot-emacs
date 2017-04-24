@@ -39,6 +39,10 @@
 (when (file-exists-p "~/.emacs.d/dev/haxe-tools/haxe-tools.el")
   (require 'haxe-tools "~/.emacs.d/dev/haxe-tools/haxe-tools"))
 
+(when (file-exists-p "~/.emacs.d/dev/tic-tac-toe/tic-tac-toe.el")
+  (add-to-list 'load-path "~/.emacs.d/dev/tic-tac-toe")
+  (require 'tic-tac-toe))
+
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)

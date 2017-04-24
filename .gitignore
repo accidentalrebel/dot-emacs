@@ -21,12 +21,8 @@
 /tramp
 /url/*
 /var/*
-/dev/emacs-dokuwiki/*
 /network-security.data
 /session.*
-/dev/haxe-tools/*
 /user.el
-/dev/tic-tac-toe/
-/dev/emacs-haxe-imports/
-/dev/tic-tac-toe-improved/
+/dev/*
 /smex-items
