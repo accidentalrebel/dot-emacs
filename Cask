@@ -45,6 +45,7 @@
 (depends-on "keyfreq")
 (depends-on "magit")
 (depends-on "magit-popup")
+(depends-on "markdown-mode+")
 (depends-on "monky")
 (depends-on "multiple-cursors")
 (depends-on "nyan-mode")
