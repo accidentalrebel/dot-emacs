@@ -124,9 +124,9 @@
 
 (use-package avy
   :bind ( :map arebel-custom-key-map
-	       ("C-," . avy-goto-char-2)
-	       ("C-;" . avy-goto-word-1)
-	       ("C-<" . avy-goto-line)))
+	       ("C-<" . avy-goto-char-2)
+	       ("C-," . avy-goto-word-1)
+	       ("C-;" . avy-goto-line)))
 
 (use-package abbrev
   :diminish (abbrev-mode . ""))
