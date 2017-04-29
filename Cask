@@ -5,6 +5,7 @@
 
 (depends-on "ace-window")
 (depends-on "ag")
+(depends-on "alert")
 (depends-on "all-the-icons")
 (depends-on "async")
 (depends-on "auto-complete")
@@ -43,6 +44,7 @@
 (depends-on "imgur")
 (depends-on "json-mode")
 (depends-on "keyfreq")
+(depends-on "list-unicode-display")
 (depends-on "magit")
 (depends-on "magit-popup")
 (depends-on "markdown-mode+")

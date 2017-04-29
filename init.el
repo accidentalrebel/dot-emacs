@@ -48,7 +48,13 @@
 (scroll-bar-mode -1)
 (show-paren-mode 1)
 (fset 'yes-or-no-p 'y-or-n-p)
-(toggle-frame-maximized)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+(setq inhibit-startup-screen t)
+(calendar)
+(other-window 1)
+(switch-to-buffer "*splash*")
+(org-agenda-list)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -76,7 +82,7 @@
      (search category-keep))))
  '(package-selected-packages
    (quote
-    (diminish magit-popup nyan-mode imgur twittering-mode elmacro csv-mode all-the-icons flycheck helm helm-core package-build package-lint projectile restart-emacs smartparens web-mode o-blog org-page sudoku open-junk-file json-mode which-key ag with-editor yasnippet pallet php-mode f 2048-game smart-mode-line doom-themes ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode xml-rpc haxe-imports helm-ag evil-smartparens org-journal monky magit evil better-defaults ##)))
+    (list-unicode-display alert diminish magit-popup nyan-mode imgur twittering-mode elmacro csv-mode all-the-icons flycheck helm helm-core package-build package-lint projectile restart-emacs smartparens web-mode o-blog org-page sudoku open-junk-file json-mode which-key ag with-editor yasnippet pallet php-mode f 2048-game smart-mode-line doom-themes ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode xml-rpc haxe-imports helm-ag evil-smartparens org-journal monky magit evil better-defaults ##)))
  '(send-mail-function nil)
  '(vc-annotate-background "#181e26")
  '(vc-annotate-color-map

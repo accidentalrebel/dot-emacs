@@ -130,7 +130,7 @@
 (defun devenv-smart-open-elisp-output-window (buffer-name)
   "A helper that opens BUFFER for output.
 Useful for quick devving with elisp."
-  (let ((buffer (get-buffer-create "*tic-tac-toe*")))
+  (let ((buffer (get-buffer-create buffer-name)))
     (if (and buffer (get-buffer-window buffer))
 	(switch-to-buffer-other-window buffer)
       (if (and (get-buffer-window buffer t))
