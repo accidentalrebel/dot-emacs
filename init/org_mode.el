@@ -59,3 +59,10 @@
 	 :map org-mode-map
 	       ("C-'" . nil))
   )
+
+(use-package org-journal
+  :init
+  (add-hook 'org-journal-mode-hook (lambda() (flyspell-mode 1)))
+  )
+
+;; 

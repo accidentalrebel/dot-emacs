@@ -1,4 +1,85 @@
 (use-package ag)
+
+(use-package hydra
+  :config
+  (defvar hydra-stack nil)
+  
+  (defun hydra-push (expr)
+    (push `(lambda () ,expr) hydra-stack))
+
+  (defun hydra-pop ()
+    (interactive)
+    (let ((x (pop hydra-stack)))
+      (when x
+	(funcall x))))
+  
+  (defhydra hydra-movement (:color amaranth)
+    "movement and editing."
+    ("c" previous-line)
+    ("t" next-line)
+    ("h" backward-char)
+    ("n" forward-char)
+    ("r" forward-word)
+    ("g" backward-word)
+    ("s" move-end-of-line)
+    ("d" move-beginning-of-line)
+    ("'" comment-dwim)
+    ("q" kill-ring-save)
+    ("j" kill-region)
+    ("/" beginning-of-buffer)
+    ("-" end-of-buffer)
+    ("f" scroll-down-command)
+    ("b" scroll-up-command)
+
+    ("u" (delete-char 1))
+    ("o" (delete-char -1))
+    ("p" (kill-word 1))
+    ("," (kill-word -1))
+    ("e" kill-whole-line)
+    
+    ("k" yank)
+    ("." undo)
+    ("i" undo-tree-visualize)
+
+    ("w" (progn
+	   (hydra-sexp/body)
+	   (hydra-push '(hydra-movement/body)))
+     "To sexp" :color blue)
+    ("q" hydra-pop "exit" :color blue)
+    )
+  
+  (defhydra hydra-sexp (:color red)
+    "sexps."
+    ("h" sp-backward-sexp)
+    ("n" sp-forward-sexp)
+    ("c" sp-up-sexp)
+    ("t" sp-down-sexp)
+    
+    ("e" sp-kill-sexp)
+    ("." sp-raise-sexp)
+    ("u" sp-forward-slurp-sexp)
+    ("a" sp-backward-slurp-sexp)
+    ("p" sp-forward-barf-sexp)
+    ("," sp-backward-barf-sexp)
+
+    ("q" hydra-pop "exit" :color blue)
+    )
+  
+  (global-set-key (kbd "C-t") 'hydra-movement/body)
+  
+  (defhydra hydra-window (global-map "C-o")
+    "window, buffers, and files."
+    ("o" other-window)
+    ("e" other-frame)
+    ("u" delete-other-windows)
+    ("k" delete-window)
+    ("p" split-window-right)
+    ("." split-window-below)
+    ("," make-frame-command)
+    (";" delete-frame)
+
+    ("b" helm-mini)))
+
 (use-package elmacro
   :config
   (elmacro-mode))
