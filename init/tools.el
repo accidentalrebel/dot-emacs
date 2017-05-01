@@ -15,6 +15,8 @@
   
   (defhydra hydra-movement (:color red)
     "Movement and editing"
+    ("a" set-mark-command "set-mark-command")
+
     ("c" previous-line "up")
     ("t" next-line "down")
     ("h" backward-char "left")
@@ -24,11 +26,11 @@
     ("s" move-end-of-line "eol")
     ("d" move-beginning-of-line "bol")
     ("'" comment-dwim "comment")
-    ("-" end-of-buffer "eob")
-    ("/" beginning-of-buffer "bob")
-    ("f" scroll-down-command "scroll-up")
-    ("b" scroll-up-command "scroll-down")
-
+    ("b" end-of-buffer "eob")
+    ("f" beginning-of-buffer "bob")
+    ("m" scroll-down-command "scroll-up")
+    ("v" scroll-up-command "scroll-down")
+    
     ("u" (delete-char 1) "kf-char")
     ("o" (delete-char -1) "kb-char")
     ("p" (kill-word 1) "kf-word")
@@ -45,8 +47,7 @@
 	   (hydra-sexp/body)
 	   (hydra-push '(hydra-movement/body)))
      "To sexp" :color blue)
-    ("<SPC>" hydra-pop "exit" :color blue)
-    )
+    ("<SPC>" hydra-pop "exit" :color blue))
   
   (defhydra hydra-sexp (:color red)
     "sexps."
@@ -65,19 +66,23 @@
     ("<SPC>" hydra-pop "exit" :color blue)
     )
   
-  (defhydra hydra-window (global-map "C-o")
+  (defhydra hydra-window ()
     "window, buffers, and files."
-    ("o" other-window)
-    ("e" other-frame)
-    ("u" delete-other-windows)
-    ("k" delete-window)
-    ("p" split-window-right)
-    ("." split-window-below)
-    ("," make-frame-command)
-    (";" delete-frame)
+    ("o" other-window "other-window")
+    ("e" other-frame "other-frame")
+    ("u" delete-other-windows "d-other-windows")
+    ("k" delete-window "d-window")
+    ("p" split-window-right "split-horizontally")
+    ("." split-window-below "splite-vertically")
+    ("," make-frame-command "new-frame")
+    (";" delete-frame "delete-frame")
 
-    ("b" helm-mini))
-  
+    ("b" helm-mini "helm-mini")
+    
+    ("<SPC>" hydra-pop "exit" :color blue)
+    )
+
+  (global-set-key (kbd "C-o") 'hydra-window/body)
   (global-set-key (kbd "C-t") 'hydra-movement/body)
   ;(hydra-movement/body)
   )

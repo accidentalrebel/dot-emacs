@@ -11,7 +11,6 @@
   '("melpa" . "http://melpa.milkbox.net/packages/"))
 (setq load-prefer-newer t)
 
-
 (prefer-coding-system 'utf-8)
 
 (require 'cask "~/.cask/cask.el")
