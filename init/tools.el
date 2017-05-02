@@ -17,7 +17,7 @@
     (interactive)
     (defvar hydra-stack nil))
   
-  (defhydra hydra-main (:color pink)
+  (defhydra hydra-main (:color red)
     "MAIN"
     ("a" set-mark-command "mark")
     
@@ -63,7 +63,7 @@
     ("d" move-beginning-of-line)
     )
   
-  (defhydra hydra-sexp (:color pink)
+  (defhydra hydra-sexp (:color red)
     "SEXPS"
     ("h" sp-backward-sexp "backward-sexp")
     ("n" sp-forward-sexp "forward-sexp")
@@ -81,16 +81,17 @@
     ("C-<SPC>" hydra-flush :exit t)
     )
   
-  (defhydra hydra-window (:color pink)
+  (defhydra hydra-window (:color red)
     "WINDOWS"
-    ("o" other-window "other-window")
-    ("e" other-frame "other-frame")
-    ("u" delete-other-windows "k-other-wwindows")
-    ("k" delete-window "k-window")
-    ("i" split-window-right "split-horizontally")
-    ("p" split-window-below "split-vertically")
-    ("a" make-frame-command "new-frame")
-    (";" delete-frame "k-frame")
+    ("h" other-window "other-window")
+    ("t" other-frame "other-frame")
+    ("m" delete-window "k-window")
+    ("w" delete-frame "k-frame")
+
+    ("r" make-frame-command "new-frame")
+    ("d" delete-other-windows "k-other-wwindows")
+    ("g" split-window-right "split-horizontally")
+    ("c" split-window-below "split-vertically")
 
     ("<SPC>" hydra-flush "exit" :exit t)
     )
