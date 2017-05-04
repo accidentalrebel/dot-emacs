@@ -19,18 +19,10 @@
   
   (defhydra hydra-main (:color red)
     "MAIN"
+
+    ;; LEFT HAND SIDE
     ("a" set-mark-command "mark")
-    
     ("'" comment-dwim "comment")
-    ("-" end-of-buffer "eob")
-    ("/" beginning-of-buffer "bob")
-    ("m" scroll-down-command "scroll-up")
-    ("v" scroll-up-command "scroll-down")
-
-    ("f" avy-goto-line "avy-line")
-    ("=" avy-goto-char-2 "avy-char")
-    ("b" avy-goto-word-1 "avy-word")
-
     ("u" (delete-char 1) "kill-char-forward")
     ("o" (delete-char -1) "kill-char-backward")
     ("p" (kill-word 1) "kill-word-forward")
@@ -46,14 +38,16 @@
     ("y" undo-tree-visualize "undo-tree" :color blue)
     ("x" helm-show-kill-ring "helm-kill-ring" :color blue)
 
-    ("(" (progn
-	   (hydra-sexp/body)
-	   (hydra-push '(hydra-main/body)))
-     "hydra-sexp" :color blue)
-    
-    ("<SPC>" hydra-flush "exit" :exit t)
-    ("C-<SPC>" hydra-flush "exit" :exit t)
-    
+    ;; RIGHT HAND SIDE
+    ("-" end-of-buffer "eob")
+    ("/" beginning-of-buffer "bob")
+    ("m" scroll-down-command "scroll-up")
+    ("v" scroll-up-command "scroll-down")
+
+    ("f" avy-goto-line "avy-line")
+    ("=" avy-goto-char-2 "avy-char")
+    ("b" avy-goto-word-1 "avy-word")
+
     ("c" previous-line)
     ("t" next-line)
     ("h" backward-char)
@@ -61,22 +55,53 @@
     ("r" forward-word)
     ("g" backward-word)
     ("s" move-end-of-line)
-    ("d" move-beginning-of-line)
+    ("d" move-beginning-of-line);
+
+    (")" (progn
+	   (hydra-sexp/body)
+	   (hydra-push '(hydra-main/body)))
+     "hydra-sexp" :color blue)
+    
+    ("<SPC>" hydra-flush "exit" :exit t)
+    ("C-<SPC>" hydra-flush "exit" :exit t)
     )
   
   (defhydra hydra-sexp (:color red)
     "SEXPS"
-    ("h" sp-backward-sexp "backward-sexp")
-    ("n" sp-forward-sexp "forward-sexp")
-    ("c" sp-up-sexp "up-sexp")
-    ("t" sp-down-sexp "down-sexp")
+    ("o" sp-backward-sexp "backward-sexp")
+    ("u" sp-forward-sexp "forward-sexp")
+    ("." sp-up-sexp "up-sexp")
+    ("e" sp-down-sexp "down-sexp")
     
-    ("d" sp-kill-sexp "kill-sexp")
-    ("." sp-raise-sexp "raise-sexp")
-    ("g" sp-forward-slurp-sexp "f-slurp")
-    ("r" sp-backward-slurp-sexp "b-slurp")
-    ("m" sp-forward-barf-sexp "f-barf")
-    ("v" sp-backward-barf-sexp "b-barf")
+    ("j" sp-kill-sexp "kill-sexp")
+    ("a" sp-raise-sexp "raise-sexp")
+    ("p" sp-forward-slurp-sexp "f-slurp")
+    ("," sp-backward-slurp-sexp "b-slurp")
+    ("k" sp-forward-barf-sexp "f-barf")
+    ("q" sp-backward-barf-sexp "b-barf")
+
+    ("i" undo "undo")
+    ("y" undo-tree-visualize "undo-tree" :color blue)
+    ("x" helm-show-kill-ring "helm-kill-ring" :color blue)
+
+    ;; RIGHT HAND SIDE
+    ("-" end-of-buffer "eob")
+    ("/" beginning-of-buffer "bob")
+    ("m" scroll-down-command "scroll-up")
+    ("v" scroll-up-command "scroll-down")
+
+    ("f" avy-goto-line "avy-line")
+    ("=" avy-goto-char-2 "avy-char")
+    ("b" avy-goto-word-1 "avy-word")
+
+    ("c" previous-line)
+    ("t" next-line)
+    ("h" backward-char)
+    ("n" forward-char)
+    ("r" forward-word)
+    ("g" backward-word)
+    ("s" move-end-of-line)
+    ("d" move-beginning-of-line);
 
     ("<SPC>" hydra-pop "back" :color blue)
     ("C-<SPC>" hydra-flush :exit t)
