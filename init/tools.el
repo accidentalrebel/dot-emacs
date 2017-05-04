@@ -28,8 +28,8 @@
     ("v" scroll-up-command "scroll-down")
 
     ("f" avy-goto-line "avy-line")
+    ("=" avy-goto-char-2 "avy-char")
     ("b" avy-goto-word-1 "avy-word")
-    ("x" avy-goto-char-2 "avy-char")
 
     ("u" (delete-char 1) "kill-char-forward")
     ("o" (delete-char -1) "kill-char-backward")
@@ -43,7 +43,8 @@
     ("k" yank "yank")
 
     ("i" undo "undo")
-    ("y" undo-tree-visualize "undo-tree")
+    ("y" undo-tree-visualize "undo-tree" :color blue)
+    ("x" helm-show-kill-ring "helm-kill-ring" :color blue)
 
     ("(" (progn
 	   (hydra-sexp/body)
