@@ -4,6 +4,8 @@
 ;; Global bindings
 (bind-key "C-c C-b" 'eval-buffer)
 
+(global-unset-key (kbd "C-h e"))
+
 ;; Lisp dev related bindings
 (bind-key "C-c e e" 'toggle-debug-on-error)
 (bind-key "C-c e r" 'eval-region)
@@ -18,7 +20,6 @@
 (bind-key "C-x e" 'other-frame)
 
 (global-unset-key (kbd "C-x C-b"))
-(global-unset-key (kbd "C-h e"))
 
 ;; Change M-x to M-b
 ;; (define-key key-translation-map [?\M-x] [?\M-b])
