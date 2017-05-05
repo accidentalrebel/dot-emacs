@@ -59,7 +59,8 @@
 (use-package eshell
   :config
   (setenv "desktop" (concat user--win-arebel-home-folder "Desktop"))
-  (setenv "chefwars" user--win-chefwars-folder))
+  (setenv "chefwars" user--win-chefwars-folder)
+  (setenv "downloads" (concat user--win-arebel-home-folder "Downloads")))
 
 (setq user-mail-address user--email	
 	  user-full-name user--full-name)
