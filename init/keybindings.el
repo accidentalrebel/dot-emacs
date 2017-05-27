@@ -22,12 +22,12 @@
 (global-unset-key (kbd "C-x C-b"))
 
 ;; Change M-x to M-b
-;; (define-key key-translation-map [?\M-x] [?\M-b])
-;; (define-key key-translation-map [?\M-b] [?\M-x])
+(define-key key-translation-map [?\M-x] [?\M-b])
+(define-key key-translation-map [?\M-b] [?\M-x])
 
 ;; Change C-x to C-e
-;; (keyboard-translate ?\C-x ?\C-b)
-;; (keyboard-translate ?\C-b ?\C-x)
+(keyboard-translate ?\C-x ?\C-b)
+(keyboard-translate ?\C-b ?\C-x)
 
 ;; (global-unset-key (kbd "C-x c"))
 
