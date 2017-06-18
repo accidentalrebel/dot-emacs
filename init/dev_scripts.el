@@ -20,7 +20,7 @@
 
   (projectile-run-project "2dk run flash --debug"))
 
-(defun arebel-insert-timestamp-for-chefwars-apk ()
+(defun chefwars-insert-timestamp-for-chefwars-apk ()
   "Inserts a timestamped file name for when generating a chefwars APK."
   (interactive)
   (insert (concat "chefwars-android_" (format-time-string "%Y-%m-%d_%H-%M-%S") ".apk")))
