@@ -247,7 +247,9 @@
 (use-package alert
   :commands (alert)
   :init
-  (setq alert-default-style 'toaster))
+  ;; (setq alert-default-style 'toaster)
+  (setq alert-default-style 'log)
+  )
 
 (use-package avy
   :bind ( :map arebel-custom-key-map
@@ -261,7 +263,7 @@
 (use-package ace-window
   :bind (("C-@" . ace-window)))
 
-(use-package open-junk-file
+(use-package open-junk-fil
   :bind (("C-c j" . open-junk-file)))
 
 (use-package restart-emacs)

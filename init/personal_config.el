@@ -69,3 +69,10 @@
 (setq gnus-secondary-select-methods '((nntp "news.gmane.org") (nntp "news.gnus.org")))
 
 (defvar arebel-custom-key-map nil "My custom keymap.")
+
+(setenv "PATH" (concat
+		"c:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Auxiliary/Build" ";"
+		(concat user--win-development-folder "projects/accidentalrebel/handmade_hero/misc") ";"
+		(getenv "PATH")))
+
+
