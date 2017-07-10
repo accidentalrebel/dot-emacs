@@ -122,7 +122,10 @@
  '(rainbow-delimiters-depth-7-face ((t (:foreground "medium orchid"))))
  '(rainbow-delimiters-depth-8-face ((t (:foreground "orange"))))
  '(rainbow-delimiters-depth-9-face ((t (:foreground "chartreuse"))))
- '(rainbow-delimiters-unmatched-face ((t (:foreground "orange red")))))
+ '(rainbow-delimiters-unmatched-face ((t (:foreground "orange red"))))
+ '(tomatinho-current-ok-face ((t (:inherit tomatinho-ok-face :height 2.5))))
+ '(tomatinho-current-pause-face ((t (:inherit tomatinho-pause-face :height 2.5))))
+ '(tomatinho-time-face ((t (:height 2.5 :width semi-condensed :family "DejaVu Sans")))))
 
 (provide 'init)
 ;;; init.el ends here
