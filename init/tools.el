@@ -109,15 +109,13 @@
   
   (defhydra hydra-window (:color red)
     "WINDOWS"
-    ("h" other-window "other-window")
-    ("t" other-frame "other-frame")
     ("m" delete-window "k-window")
     ("w" delete-frame "k-frame")
 
-    ("r" make-frame-command "new-frame")
+    ("c" make-frame-command "new-frame")
     ("d" delete-other-windows "k-other-wwindows")
-    ("g" split-window-right "split-horizontally")
-    ("c" split-window-below "split-vertically")
+    ("h" split-window-right "split-horizontally")
+    ("g" split-window-below "split-vertically")
 
     ("<SPC>" hydra-flush "exit" :exit t)
     )
@@ -261,7 +259,7 @@
   :diminish (abbrev-mode . ""))
 
 (use-package ace-window
-  :bind (("C-@" . ace-window)))
+  :bind (("C-&" . ace-window)))
 
 (use-package open-junk-fil
   :bind (("C-c j" . open-junk-file)))
