@@ -79,6 +79,7 @@
 (depends-on "undo-tree")
 (depends-on "use-package")
 (depends-on "web-mode")
+(depends-on "websocket")
 (depends-on "which-key")
 (depends-on "with-editor")
 (depends-on "yaml-mode")

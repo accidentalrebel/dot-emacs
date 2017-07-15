@@ -81,7 +81,7 @@
      (search category-keep))))
  '(package-selected-packages
    (quote
-    (yaml-mode hydra list-unicode-display alert diminish magit-popup nyan-mode imgur twittering-mode elmacro csv-mode all-the-icons flycheck helm helm-core package-build package-lint projectile restart-emacs smartparens web-mode o-blog org-page sudoku open-junk-file json-mode which-key ag with-editor yasnippet pallet php-mode f 2048-game smart-mode-line doom-themes ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode xml-rpc haxe-imports helm-ag evil-smartparens org-journal monky magit evil better-defaults ##)))
+    (org s undo-tree websocket yaml-mode hydra list-unicode-display alert diminish magit-popup nyan-mode imgur twittering-mode elmacro csv-mode all-the-icons flycheck helm helm-core package-build package-lint projectile restart-emacs smartparens web-mode o-blog org-page sudoku open-junk-file json-mode which-key ag with-editor yasnippet pallet php-mode f 2048-game smart-mode-line doom-themes ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode xml-rpc haxe-imports helm-ag evil-smartparens org-journal monky magit evil better-defaults ##)))
  '(send-mail-function nil)
  '(vc-annotate-background "#181e26")
  '(vc-annotate-color-map
@@ -110,7 +110,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "outline" :slant normal :weight bold :height 110 :width normal))))
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "outline" :slant normal :weight bold :height 104 :width normal))))
  '(aw-leading-char-face ((t (:background "cyan" :foreground "black" :height 2.0))))
  '(mode-line ((t (:background "dark slate gray" :foreground "cyan"))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "cyan"))))
