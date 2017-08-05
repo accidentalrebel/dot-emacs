@@ -124,10 +124,6 @@
   (global-set-key (kbd "C-w") 'hydra-window/body)
   )
 
-(use-package elmacro
-  :config
-  (elmacro-mode))
-
 (use-package twittering-mode
   :config
   (setq twittering-use-master-password t)
@@ -166,7 +162,6 @@
   :diminish (smartparens-mode . "")
   :init
   (add-hook 'emacs-lisp-mode-hook #'smartparens-mode)
-  (add-hook 'haxe-mode-hook #'smartparens-mode)
   :bind (("C-}" . sp-forward-slurp-sexp)
 	 ("C-{" . sp-backward-slurp-sexp)
 	 ("C-(" . sp-raise-sexp)
@@ -191,12 +186,8 @@
     (and (boundp 'helm-alive-p)
 	 (symbol-value 'helm-alive-p))))
 
-(use-package tomatinho
-  :load-path "~/.emacs.d/tomatinho/")
-
 (use-package flycheck-package
   :config
-  (global-flycheck-mode)
   (eval-after-load 'flycheck
     '(flycheck-package-setup)))
 
@@ -236,11 +227,6 @@
   :config
   (ido-vertical-mode 1)
   (setq ido-vertical-define-keys 'C-n-and-C-p-only))
-
-(use-package which-key
-  :diminish (which-key-mode . "")
-  :config
-  (which-key-mode))
 
 (use-package alert
   :commands (alert)

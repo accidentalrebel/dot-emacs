@@ -3,17 +3,6 @@
 (setq backup-directory-alist `((".*" . ,temporary-file-directory))
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
-(use-package org2blog
-  :config
-  (let (credentials)
-    (add-to-list 'auth-sources "~/.netrc")
-    (setq credentials (auth-source-user-and-password "accidentalrebel")
-	  org2blog/wp-blog-alist '(("accidentalrebel"
-				    :url user--blog-xmlrpc-url
-				    :default-categories ("Blog Post")
-				    :username "admin"))))
-  )
-
 (use-package org-page
   :init
   (setq op/repository-directory (concat user--linux-dropbox-folder "orgmode/blog"))
@@ -30,8 +19,7 @@
 (use-package dokuwiki
   :config
   (setq dokuwiki-xml-rpc-url user--gamedevph-xmlrpc-url
-	dokuwiki-login-user-name user--gamedevph-username)
-  )
+	dokuwiki-login-user-name user--gamedevph-username))
 
 (if (equal system-type 'gnu/linux)
     (progn
