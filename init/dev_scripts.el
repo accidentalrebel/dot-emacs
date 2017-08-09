@@ -32,10 +32,13 @@
   (with-temp-buffer
     (let ((file-path (concat (projectile-project-root) "2DKit.yaml")))
       (set-buffer (get-file-buffer file-path))
+      (goto-char (point-min))
       (replace-string "id: com.mindcakegames.chefwars" "id: com.mindcake.chefwars")
-      (search-forward "version: ")
-      (kill-line)
-      (insert version-string)
+      (when (not (string= version-string ""))
+	(goto-char (point-min))
+	(search-forward "version: ")
+	(kill-line)
+	(insert version-string))
       (save-buffer)
       ))
 
