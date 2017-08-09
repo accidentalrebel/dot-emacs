@@ -28,7 +28,12 @@
 (defun chefwars-prepare-ios-release()
   "Prepares the ChefWars project for iOS release"
   (interactive)
-  
+  (with-temp-buffer
+    (let ((file-path (concat (projectile-project-root) "2DKit.yaml")))
+      (set-buffer (get-file-buffer file-path))
+      (replace-string "id: com.mindcakegames.chefwars" "id: com.mindcake.chefwars")
+      (save-buffer)
+       ))
   )
 
 (defun 2dk-update-project-build-timestamp ()
