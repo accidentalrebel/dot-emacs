@@ -55,6 +55,7 @@
 (depends-on "nyan-mode")
 (depends-on "o-blog")
 (depends-on "open-junk-file")
+(depends-on "org")
 (depends-on "org-journal")
 (depends-on "org-page")
 (depends-on "org2blog")

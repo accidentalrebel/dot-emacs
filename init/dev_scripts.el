@@ -25,6 +25,12 @@
   (interactive)
   (insert (concat "chefwars-android_" (format-time-string "%Y-%m-%d_%H-%M-%S") ".apk")))
 
+(defun chefwars-prepare-ios-release()
+  "Prepares the ChefWars project for iOS release"
+  (interactive)
+  
+  )
+
 (defun 2dk-update-project-build-timestamp ()
   "Updates the timestamp of the current build to the current time."
   (interactive)
