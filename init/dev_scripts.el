@@ -28,6 +28,7 @@
 (defun chefwars-prepare-ios-release(version-string)
   "Prepares the ChefWars project for iOS release"
   (interactive "sSpecify the version: ")
+
   (with-temp-buffer
     (let ((file-path (concat (projectile-project-root) "2DKit.yaml")))
       (set-buffer (get-file-buffer file-path))
@@ -36,7 +37,12 @@
       (kill-line)
       (insert version-string)
       (save-buffer)
-       ))
+      ))
+
+  (let ((file-path (concat (projectile-project-root) "libs/NativeDialogs.ane")))
+    (when (file-exists-p file-path)
+      (delete-file file-path)
+      ))
   )
 
 (defun 2dk-update-project-build-timestamp ()
