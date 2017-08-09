@@ -25,13 +25,16 @@
   (interactive)
   (insert (concat "chefwars-android_" (format-time-string "%Y-%m-%d_%H-%M-%S") ".apk")))
 
-(defun chefwars-prepare-ios-release()
+(defun chefwars-prepare-ios-release(version-string)
   "Prepares the ChefWars project for iOS release"
-  (interactive)
+  (interactive "sSpecify the version: ")
   (with-temp-buffer
     (let ((file-path (concat (projectile-project-root) "2DKit.yaml")))
       (set-buffer (get-file-buffer file-path))
       (replace-string "id: com.mindcakegames.chefwars" "id: com.mindcake.chefwars")
+      (search-forward "version: ")
+      (kill-line)
+      (insert version-string)
       (save-buffer)
        ))
   )
