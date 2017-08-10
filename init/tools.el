@@ -277,4 +277,10 @@
       (message "Copied path: " fpath))) 
   )
 
+(use-package coin-ticker
+  :config
+  (setq coin-ticker-syms '("BTC" "NEO"))
+  (coin-ticker-mode 1)
+  )
+
 ;;; tools.el ends here
