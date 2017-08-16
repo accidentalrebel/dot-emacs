@@ -10,6 +10,7 @@
 	 ("C-c h a" . counsel-apropos)
 	 ("C-c f" . counsel-git)
 	 ("C-x C-f" . counsel-find-file)
+	 ("C-x r" . counsel-recentf)
 	 ("C-x C-r" . ivy-resume)
 	 )
   )

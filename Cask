@@ -43,6 +43,7 @@
 (depends-on "ido-vertical-mode")
 (depends-on "imgur")
 (depends-on "ivy")
+(depends-on "ivy-hydra")
 (depends-on "json-mode")
 (depends-on "keyfreq")
 (depends-on "list-unicode-display")
