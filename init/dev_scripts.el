@@ -20,56 +20,6 @@
 
   (projectile-run-project "2dk run flash --debug"))
 
-(defun chefwars-insert-timestamp-for-chefwars-apk ()
-  "Inserts a timestamped file name for when generating a chefwars APK."
-  (interactive)
-  (insert (concat "chefwars-android_" (format-time-string "%Y-%m-%d_%H-%M-%S") ".apk")))
-
-(defun chefwars-prepare-android-release(version-string)
-  "Prepares the ChefWars project for Android release"
-  (interactive "sSpecify the version: ")
-
-  (with-temp-buffer
-    (let ((file-path (concat (projectile-project-root) "2DKit.yaml")))
-      (set-buffer (get-file-buffer file-path))
-      (goto-char (point-min))
-      (replace-string "id: com.mindcake.chefwars" "id: com.mindcakegames.chefwars")
-      (when (not (string= version-string ""))
-	(goto-char (point-min))
-	(search-forward "version: ")
-	(kill-line)
-	(insert version-string))
-      (save-buffer)
-      ))
-
-  (let ((file-path (concat (projectile-project-root) "tools/ane/NativeDialogs.ane"))
-	(target-directory (concat (projectile-project-root) "libs/")))
-    (copy-file file-path target-directory))
-  )
-
-(defun chefwars-prepare-ios-release(version-string)
-  "Prepares the ChefWars project for iOS release"
-  (interactive "sSpecify the version: ")
-
-  (with-temp-buffer
-    (let ((file-path (concat (projectile-project-root) "2DKit.yaml")))
-      (set-buffer (get-file-buffer file-path))
-      (goto-char (point-min))
-      (replace-string "id: com.mindcakegames.chefwars" "id: com.mindcake.chefwars")
-      (when (not (string= version-string ""))
-	(goto-char (point-min))
-	(search-forward "version: ")
-	(kill-line)
-	(insert version-string))
-      (save-buffer)
-      ))
-
-  (let ((file-path (concat (projectile-project-root) "libs/NativeDialogs.ane")))
-    (when (file-exists-p file-path)
-      (delete-file file-path)
-      ))
-  )
-
 (defun 2dk-update-project-build-timestamp ()
   "Updates the timestamp of the current build to the current time."
   (interactive)

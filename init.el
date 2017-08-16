@@ -25,7 +25,6 @@
   (load "~/.emacs.d/user.el"))
 
 (load "~/.emacs.d/init/theme")
-(load "~/.emacs.d/init/helm_mode")
 (load "~/.emacs.d/init/haxe_mode")
 (load "~/.emacs.d/init/versioning")
 (load "~/.emacs.d/init/tools")
@@ -81,7 +80,7 @@
      (search category-keep))))
  '(package-selected-packages
    (quote
-    (coin-ticker auto-complete ido-vertical-mode flycheck-package keyfreq golden-ratio gotham-theme helm-projectile dired-du org s undo-tree websocket yaml-mode hydra list-unicode-display alert diminish magit-popup nyan-mode imgur twittering-mode elmacro csv-mode all-the-icons flycheck helm helm-core package-build projectile restart-emacs smartparens web-mode o-blog org-page sudoku open-junk-file json-mode which-key ag with-editor yasnippet pallet php-mode f 2048-game ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode xml-rpc haxe-imports helm-ag evil-smartparens org-journal monky magit evil better-defaults ##)))
+    (counsel-projectile counsel ivy coin-ticker auto-complete ido-vertical-mode flycheck-package keyfreq golden-ratio gotham-theme dired-du org s undo-tree websocket yaml-mode hydra list-unicode-display diminish magit-popup nyan-mode imgur twittering-mode elmacro csv-mode all-the-icons flycheck package-build projectile restart-emacs smartparens web-mode o-blog org-page sudoku open-junk-file json-mode which-key ag with-editor yasnippet pallet php-mode f 2048-game ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode xml-rpc haxe-imports evil-smartparens org-journal monky magit evil better-defaults ##)))
  '(send-mail-function nil)
  '(vc-annotate-background "#181e26")
  '(vc-annotate-color-map

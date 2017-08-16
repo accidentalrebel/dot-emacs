@@ -1,3 +1,30 @@
+(use-package ivy
+  :init
+  (ivy-mode 1)
+  :config
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) ")
+  :bind (("M-x" . counsel-M-x)
+	 ("C-x b" . ivy-switch-buffer)
+	 ("C-c h o" . swiper)
+	 ("C-c h a" . counsel-apropos)
+	 ("C-c f" . counsel-git)
+	 ("C-x C-f" . counsel-find-file)
+	 ("C-x C-r" . ivy-resume)
+	 )
+  )
+
+(use-package counsel-projectile
+  :init
+  (projectile-mode)
+  :config
+  (setq projectile-completion-system 'ivy)
+  :bind (("C-c p s" . projectile-ag)
+	 ("C-c f" . projectile-find-file)
+	 ("C-c C-f" . projectile-find-file-in-known-projects)
+	 )
+  )
+
 (use-package ag)
 
 (use-package hydra
@@ -231,8 +258,8 @@
 (use-package alert
   :commands (alert)
   :init
-  ;; (setq alert-default-style 'toaster)
-  (setq alert-default-style 'log)
+  (setq alert-default-style 'toaster)
+  ;;(setq alert-default-style 'log)
   )
 
 (use-package avy
@@ -279,7 +306,7 @@
 
 (use-package coin-ticker
   :config
-  (setq coin-ticker-syms '("BTC" "NEO"))
+  (setq coin-ticker-syms '("BTC" "LTC"))
   (coin-ticker-mode 1)
   )
 
