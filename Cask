@@ -22,6 +22,7 @@
 (depends-on "drag-stuff")
 (depends-on "elmacro")
 (depends-on "epl")
+(depends-on "eshell-up")
 (depends-on "evil")
 (depends-on "evil-smartparens")
 (depends-on "exec-path-from-shell")

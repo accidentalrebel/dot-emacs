@@ -8,8 +8,11 @@
 	 ("C-x b" . ivy-switch-buffer)
 	 ("C-c h o" . swiper)
 	 ("C-c h a" . counsel-apropos)
+	 ("C-c f" . counsel-git)
+	 ("C-x C-f" . counsel-find-file)
 	 ("C-x r" . counsel-recentf)
 	 ("C-x C-r" . ivy-resume)
+	 ("C-c f" . counsel-find-file)
 	 )
   )
 
@@ -244,12 +247,6 @@
   (keyfreq-mode 1)
   (keyfreq-autosave-mode 1))
 
-(use-package ido
-  :config
-  (ido-mode t)
-  (setq org-completion-use-ido t)
-  (setq ido-enable-flex-matching t)
-  :bind (("C-c f" . ido-find-file)))
 
 (use-package ido-vertical-mode
   :config
@@ -302,8 +299,13 @@
     (interative)
     (let ((fpath (concat (eshell/pwd) "/" fname)))
       (clipboard/set fpath)
-      (message "Copied path: " fpath))) 
+      (message "Copied path: " fpath)))
+
+  :bind (("C-c e s" . eshell)
+	 ("C-c e p" . eshell/copy-pwd))
   )
+
+(use-package eshell-up)
 
 (use-package coin-ticker
   :config
