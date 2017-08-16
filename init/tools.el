@@ -8,8 +8,6 @@
 	 ("C-x b" . ivy-switch-buffer)
 	 ("C-c h o" . swiper)
 	 ("C-c h a" . counsel-apropos)
-	 ("C-c f" . counsel-git)
-	 ("C-x C-f" . counsel-find-file)
 	 ("C-x r" . counsel-recentf)
 	 ("C-x C-r" . ivy-resume)
 	 )
@@ -20,9 +18,11 @@
   (projectile-mode)
   :config
   (setq projectile-completion-system 'ivy)
-  :bind (("C-c p s" . projectile-ag)
-	 ("C-c f" . projectile-find-file)
-	 ("C-c C-f" . projectile-find-file-in-known-projects)
+  (setq projectile-enable-caching t)
+  (setq projectile-indexing-method 'alien)
+  :bind (("C-c p s" . counsel-projectile-ag)
+	 ("C-c p p" . counsel-projectile-switch-project)
+	 ("C-x f" . counsel-projectile-find-file)
 	 )
   )
 
