@@ -18,6 +18,7 @@
 			       (setq indent-tabs-mode t)
 			       (setq fill-column 80)
 			       (auto-complete-mode 1)
+			       (undo-tree-mode)
 			       (local-set-key [(return)] 'newline-and-indent))))
   )
 

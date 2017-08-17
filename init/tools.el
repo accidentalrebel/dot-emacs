@@ -16,6 +16,8 @@
 	 )
   )
 
+(use-package counsel)
+
 (use-package counsel-projectile
   :init
   (projectile-mode)
@@ -28,6 +30,13 @@
 	 ("C-x f" . counsel-projectile-find-file)
 	 )
   )
+
+;; (use-package ido
+  ;; :config
+  ;; (ido-mode t)
+  ;; (setq org-completion-use-ido t)
+  ;; (setq ido-enable-flex-matching t)
+  ;; :bind (("C-c f" . ido-find-file)))
 
 (use-package ag)
 
@@ -67,7 +76,7 @@
 
     ("i" undo "undo")
     ("y" undo-tree-visualize "undo-tree" :color blue)
-    ("x" helm-show-kill-ring "helm-kill-ring" :color blue)
+    ("x" counsel-yank-pop "kill-ring" :color blue)
 
     ;; RIGHT HAND SIDE
     ("-" end-of-buffer "eob")
@@ -171,7 +180,7 @@
   :config
   (yas-global-mode t)
   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
-  :bind ( :map yas-minor-mode-map
+  :bind ( :map yas-minor-mode-map	
 	      ("<tab>" . nil)
 	      ("TAB" . nil)
 	      ("<backtab>" . yas-expand)
