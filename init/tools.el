@@ -4,9 +4,14 @@
   :config
   (setq ivy-use-virtual-buffers t)
   (setq ivy-count-format "(%d/%d) ")
+  :preface
+  (defun swiper-at-point ()
+    (interactive)
+    (swiper (thing-at-point 'word))
+    )
   :bind (("M-x" . counsel-M-x)
 	 ("C-x b" . ivy-switch-buffer)
-	 ("C-c h o" . swiper)
+	 ("C-c h o" . swiper-at-point)
 	 ("C-c h a" . counsel-apropos)
 	 ("C-c f" . counsel-git)
 	 ("C-x C-f" . counsel-find-file)
