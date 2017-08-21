@@ -11,6 +11,7 @@
     )
   :bind (("M-x" . counsel-M-x)
 	 ("C-x b" . ivy-switch-buffer)
+	 ("C-s" . swiper)
 	 ("C-c h o" . swiper-at-point)
 	 ("C-c h a" . counsel-apropos)
 	 ("C-c f" . counsel-git)
@@ -18,6 +19,7 @@
 	 ("C-x r" . counsel-recentf)
 	 ("C-x C-r" . ivy-resume)
 	 ("C-c f" . counsel-find-file)
+	 ("C-x c p" . counsel-list-processes)
 	 )
   )
 
@@ -323,7 +325,7 @@
 
 (use-package coin-ticker
   :config
-  (setq coin-ticker-syms '("BTC" "LTC"))
+  (setq coin-ticker-syms '("BTC" "BCH" "LTC"))
   (coin-ticker-mode 1)
   )
 

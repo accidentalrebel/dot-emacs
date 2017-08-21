@@ -63,6 +63,7 @@
 (depends-on "package-build")
 (depends-on "package-lint")
 (depends-on "pallet")
+(depends-on "php-mode")
 (depends-on "pkg-info")
 (depends-on "popup")
 (depends-on "popwin")
