@@ -17,7 +17,6 @@
 			       (setq tab-width 4)
 			       (setq indent-tabs-mode t)
 			       (setq fill-column 80)
-			       (auto-complete-mode 1)
 			       (local-set-key [(return)] 'newline-and-indent))))
   )
 

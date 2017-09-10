@@ -11,7 +11,7 @@
     )
   :bind (("M-x" . counsel-M-x)
 	 ("C-x b" . ivy-switch-buffer)
-	 ("C-s" . swiper)
+	 ("C-c h h" . swiper)
 	 ("C-c h o" . swiper-at-point)
 	 ("C-c h a" . counsel-apropos)
 	 ("C-c f" . counsel-git)
@@ -193,14 +193,6 @@
 	      ("<backtab>" . yas-expand)
 	      ("C-c TAB" . yas|||-expand)))
 
-(use-package auto-complete-config
-  :config
-  (ac-config-default)
-  (global-auto-complete-mode t)
-  (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-  (ac-set-trigger-key "TAB")
-  (ac-set-trigger-key "<tab>"))
-
 (global-auto-revert-mode 1)
 
 (use-package bind-key)
@@ -214,9 +206,6 @@
 	 ("C-(" . sp-raise-sexp)
 	 ("C-#" . sp-forward-barf-sexp)
 	 ("C-!" . sp-backward-barf-sexp)))
-
-(use-package auto-complete
-  :diminish (auto-complete-mode . ""))
 
 (use-package undo-tree
   :diminish (undo-tree-mode . ""))
@@ -321,6 +310,14 @@
 	 ("C-c e p" . eshell/copy-pwd))
   )
 
+(use-package company
+  :init
+  (setq company-idle-delay 0)
+  (setq company-minimum-prefx-length 2)
+  (add-hook 'after-init-hook 'global-company-mode)
+  :bind (("<tab>" . company-complete-common-or-cycle))
+  )
+
 (use-package eshell-up)
 
 (use-package coin-ticker
@@ -330,3 +327,6 @@
   )
 
 ;;; tools.el ends here
+
+(use-package request)
+(use-package request-deferred)

@@ -8,6 +8,15 @@
   (let ((bat-path (concat (replace-regexp-in-string "\n$" "" (shell-command-to-string "hg root")) "\\run.bat")))
     (start-process "cmd" nil "cmd.exe" "/C" "start" "cmd.exe" "/k" bat-path)))
 
+(defun arebel--scale-assets-in-folder(target-directory scale-size)
+  (dolist (file (directory-files-recursively target-directory ".png$"))
+    (message "file is %s" file)
+    (shell-command (concat "magick convert " file " -resize " (number-to-string scale-size) "% " file))) )
+
+(defun arebel-scale-assets-in-current-folder (scale-size)
+  (interactive "nWhat is the scale size (0-100): ")
+  (arebel--bbscale-assets-in-folder default-directory scale-size))
+
 ;; 2DK
 (defun 2dk-run-project-debug ()
   "Run the current 2dk project."
