@@ -5,14 +5,18 @@
 
 (use-package org-page
   :init
-  (setq op/repository-directory (concat user--linux-dropbox-folder "orgmode/blog"))
+  (setq op/repository-directory (concat (if (equal system-type 'gnu/linux)
+					    user--linux-dropbox-folder
+					  user--win-dropbox-folder) "orgmode/blog"))
   (setq op/site-domain "https://accidentalrebel.github.io/")
   (setq op/site-main-title "Accidental Rebel")
   (setq op/site-sub-title "My personal blog.")
   (setq op/personal-github-link "https://github.com/accidentalrebel/")
   (setq op/personal-disqus-shortname "accidentalrebel")
   ;;  (setq op/personal-avatar user--blog-avatar-link)
-  (setq op/theme-root-directory (concat user--linux-dropbox-folder "orgmode/blog/themes"))
+  (setq op/theme-root-directory (concat (if (equal system-type 'gnu/linux)
+					    user--linux-dropbox-folder
+					  user--win-dropbox-folder) "orgmode/blog/themes"))
   (setq op/theme 'arebel)
   )
 

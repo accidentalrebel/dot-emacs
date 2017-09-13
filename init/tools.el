@@ -11,7 +11,7 @@
     )
   :bind (("M-x" . counsel-M-x)
 	 ("C-x b" . ivy-switch-buffer)
-	 ("C-c h h" . swiper)
+	 ("C-c h u" . swiper)
 	 ("C-c h o" . swiper-at-point)
 	 ("C-c h a" . counsel-apropos)
 	 ("C-c f" . counsel-git)
@@ -37,13 +37,6 @@
 	 ("C-x f" . counsel-projectile-find-file)
 	 )
   )
-
-;; (use-package ido
-  ;; :config
-  ;; (ido-mode t)
-  ;; (setq org-completion-use-ido t)
-  ;; (setq ido-enable-flex-matching t)
-  ;; :bind (("C-c f" . ido-find-file)))
 
 (use-package ag)
 
@@ -191,7 +184,7 @@
 	      ("<tab>" . nil)
 	      ("TAB" . nil)
 	      ("<backtab>" . yas-expand)
-	      ("C-c TAB" . yas|||-expand)))
+	      ("C-c TAB" . yas-expand)))
 
 (global-auto-revert-mode 1)
 
@@ -312,10 +305,9 @@
 
 (use-package company
   :init
-  (setq company-idle-delay 0)
+  (setq company-idle-delay 1)
   (setq company-minimum-prefx-length 2)
   (add-hook 'after-init-hook 'global-company-mode)
-  :bind (("<tab>" . company-complete-common-or-cycle))
   )
 
 (use-package eshell-up)
@@ -326,7 +318,14 @@
   (coin-ticker-mode 1)
   )
 
-;;; tools.el ends here
-
 (use-package request)
 (use-package request-deferred)
+
+;;; tools.el ends here
+
+(use-package eww
+  :init
+  (setq shr-color-visible-luminance-min 70)
+  )
+
+(use-package hackernews)

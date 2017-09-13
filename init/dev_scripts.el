@@ -15,7 +15,18 @@
 
 (defun arebel-scale-assets-in-current-folder (scale-size)
   (interactive "nWhat is the scale size (0-100): ")
-  (arebel--bbscale-assets-in-folder default-directory scale-size))
+  (arebel--scale-assets-in-folder default-directory scale-size))
+
+(defun arebel-init-projectile-project-scripts ()
+  (interactive)
+  (let ((target (concat (projectile-project-root) "project.el")))
+    (when (file-exists-p target)
+      (with-temp-buffer
+	(setq default-directory (projectile-project-root))
+	(load-file target)
+	)
+      )
+    ))
 
 ;; 2DK
 (defun 2dk-run-project-debug ()
