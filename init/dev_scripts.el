@@ -23,8 +23,7 @@
     (when (file-exists-p target)
       (with-temp-buffer
 	(setq default-directory (projectile-project-root))
-	(load-file target)
-	)
+	(load-file target))
       )
     ))
 

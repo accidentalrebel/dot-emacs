@@ -81,6 +81,7 @@
 (depends-on "smartparens")
 (depends-on "smex")
 (depends-on "sudoku")
+(depends-on "swiper")
 (depends-on "tomatinho")
 (depends-on "twittering-mode")
 (depends-on "undo-tree")

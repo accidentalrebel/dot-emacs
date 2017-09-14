@@ -13,9 +13,6 @@
   	org-default-notes-file (if (eq system-type 'gnu/linux)
 				   (expand-file-name "~/Dropbox/orgmode/uncategorized.org")
 				 (expand-file-name (concat user--win-dropbox-folder "orgmode/uncategorized.org")))
-  	org-journal-dir (if (eq system-type 'gnu/linux)
-			    (expand-file-name "~/Dropbox/orgmode/journal")
-			  (expand-file-name  (concat user--win-dropbox-folder "orgmode/journal")))
   	org-agenda-files (list (concat org-directory "todos/"))
   	org-refile-targets '((org-agenda-files . (:maxlevel . 6)))
   	org-agenda-window-setup 'current-window
@@ -62,7 +59,15 @@
 
 (use-package org-journal
   :init
-  (add-hook 'org-journal-mode-hook (lambda() (flyspell-mode 1)))
+  (setq org-journal-dir (if (eq system-type 'gnu/linux)
+			    (expand-file-name "~/Dropbox/orgmode/journal")
+			  (expand-file-name  (concat user--win-dropbox-folder "orgmode/journal"))))
+  (setq org-journal-file-format "%Y%m%d.org")
+  (setq org-journal-enable-encryption t)    
+  (add-hook 'org-journal-mode-hook (lambda()
+				     ;;(flyspell-mode 1)
+				     (auto-save-mode)
+				     ))
   )
 
 ;; 
