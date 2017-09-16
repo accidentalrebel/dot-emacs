@@ -8,10 +8,10 @@
   				    (bind-key "P" 'org-pomodoro org-agenda-mode-map)))
   :config
   (setq org-directory (if (eq system-type 'gnu/linux)
-			  (expand-file-name "~/Dropbox/orgmode/")
+			  (expand-file-name (concat user--linux-dropbox-folder "orgmode/"))
 			(expand-file-name (concat user--win-dropbox-folder "orgmode/")))
   	org-default-notes-file (if (eq system-type 'gnu/linux)
-				   (expand-file-name "~/Dropbox/orgmode/uncategorized.org")
+				   (expand-file-name (concat user--linux-dropbox-folder "orgmode/uncategorized.org"))
 				 (expand-file-name (concat user--win-dropbox-folder "orgmode/uncategorized.org")))
   	org-agenda-files (list (concat org-directory "todos/"))
   	org-refile-targets '((org-agenda-files . (:maxlevel . 6)))
@@ -60,7 +60,7 @@
 (use-package org-journal
   :init
   (setq org-journal-dir (if (eq system-type 'gnu/linux)
-			    (expand-file-name "~/Dropbox/orgmode/journal")
+			    (expand-file-name (concat user--linux-dropbox-folder "orgmode/journal"))
 			  (expand-file-name  (concat user--win-dropbox-folder "orgmode/journal"))))
   (setq org-journal-file-format "%Y%m%d.org")
   (setq org-journal-enable-encryption t)    

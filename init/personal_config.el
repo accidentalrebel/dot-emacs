@@ -37,6 +37,8 @@
 
 (use-package slack
   :commands (slack-start)
+  :init
+  (setq slack-completing-read-function 'ido-completing-read)
   :config
   (slack-register-team
    :name "emacs-slack"

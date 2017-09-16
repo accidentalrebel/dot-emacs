@@ -70,7 +70,7 @@
 	    )
 	 (lambda (result)
 	   (message "%s" result)
-	   (alert result :title "2dk-build-offline-package")
+	   (alert result :title "2dk-build-offline-package" :severity 'high)
 	   )))
     (message "Should be in a haxe-mode buffer to do this!")))
 
@@ -115,7 +115,7 @@
 		    "Successfully removed all .OGG files")
 		 (lambda (result)
 		   (message "%s" result)
-		   (alert result :title "2dk-remove-ogg-from-build")
+		   (alert result :title "2dk-remove-ogg-from-build" :severity 'high)
 		   )))
 	    (message "THere are no .OGG files found"))))
     (message "Should be in a haxe-mode buffer to do this!")))

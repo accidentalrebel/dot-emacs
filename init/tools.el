@@ -9,7 +9,8 @@
     (interactive)
     (swiper (thing-at-point 'word))
     )
-  :bind (("M-x" . counsel-M-x)
+  :bind (
+	 ("M-x" . counsel-M-x)
 	 ("C-x b" . ivy-switch-buffer)
 	 ("C-c h u" . swiper)
 	 ("C-c h o" . swiper-at-point)
@@ -254,8 +255,9 @@
 (use-package alert
   :commands (alert)
   :init
-  (setq alert-default-style 'toaster)
-  ;;(setq alert-default-style 'log)
+  (setq alert-log-messages t)
+  (setq alert-default-style 'message)
+  (setq alert-user-configuration '((((:severity high)) toaster nil)))
   )
 
 (use-package avy

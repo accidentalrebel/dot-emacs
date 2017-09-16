@@ -47,21 +47,16 @@
 (scroll-bar-mode -1)
 (show-paren-mode 1)
 (fset 'yes-or-no-p 'y-or-n-p)
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
+;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 (setq inhibit-startup-screen t)
 (calendar)
 (other-window 1)
 (switch-to-buffer "*splash*")
 (hackernews)
-(split-window-horizontally)
 (speed-type-text)
-;; (org-agenda-list)
 
-;; 25.3 Vulnerability fix.
-(eval-after-load "enriched"
-  '(defun enriched-decode-display-prop (start end &optional param)
-     (list start end)))
+;; (org-agenda-list)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -89,7 +84,7 @@
      (search category-keep))))
  '(package-selected-packages
    (quote
-    (speed-type haxe-mode swiper hackernews alert async dash deferred git-commit markdown-mode company request-deferred drag-stuff expand-region flycheck-cask free-keys goto-chg idle-highlight-mode multiple-cursors eshell-up ivy-hydra counsel-projectile counsel ivy coin-ticker ido-vertical-mode flycheck-package keyfreq golden-ratio gotham-theme dired-du org s undo-tree websocket yaml-mode hydra list-unicode-display diminish magit-popup nyan-mode imgur twittering-mode elmacro csv-mode all-the-icons flycheck package-build restart-emacs smartparens web-mode o-blog org-page sudoku open-junk-file json-mode which-key ag with-editor yasnippet pallet php-mode f 2048-game ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode xml-rpc haxe-imports evil-smartparens org-journal monky magit evil better-defaults ##)))
+    (request speed-type haxe-mode swiper hackernews alert async dash deferred git-commit markdown-mode company request-deferred drag-stuff expand-region flycheck-cask free-keys goto-chg idle-highlight-mode multiple-cursors eshell-up ivy-hydra counsel-projectile counsel ivy coin-ticker ido-vertical-mode flycheck-package keyfreq golden-ratio gotham-theme dired-du org s undo-tree websocket yaml-mode hydra list-unicode-display diminish magit-popup nyan-mode imgur twittering-mode elmacro csv-mode all-the-icons flycheck package-build restart-emacs smartparens web-mode o-blog org-page sudoku open-junk-file json-mode which-key ag with-editor yasnippet pallet php-mode f 2048-game ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode xml-rpc haxe-imports evil-smartparens org-journal monky magit evil better-defaults ##)))
  '(send-mail-function nil)
  '(vc-annotate-background "#181e26")
  '(vc-annotate-color-map
@@ -118,7 +113,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "outline" :slant normal :weight bold :height 104 :width normal))))
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "outline" :slant normal :weight bold :height 134 :width normal))))
  '(aw-leading-char-face ((t (:background "cyan" :foreground "black" :height 2.0))))
  '(mode-line ((t (:background "dark slate gray" :foreground "cyan"))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "cyan"))))
@@ -136,4 +131,3 @@
  '(tomatinho-time-face ((t (:height 2.5 :width semi-condensed :family "DejaVu Sans")))))
 
 (provide 'init)
-;;; init.el ends here
