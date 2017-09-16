@@ -42,6 +42,7 @@
 (depends-on "git-commit")
 (depends-on "gntp")
 (depends-on "golden-ratio")
+(depends-on "google-this")
 (depends-on "gotham-theme")
 (depends-on "goto-chg")
 (depends-on "hackernews")
