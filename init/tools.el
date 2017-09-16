@@ -336,14 +336,11 @@
 
 (use-package eww
   :init
-  (setq browse-url-browser-function '(lambda(url &optional new-window)
-				       (start-process "cmd" nil "cmd.exe" "/C" "start" url)
-				       )))
+  (setq browse-url-browser-function 'eww-browse-url)
+  (setq shr-external-browser '(lambda(url &rest ARGS)
+				(start-process "cmd" nil "cmd.exe" "/C" "start" url)
+				)))
 
 (use-package google-this
   :init
   (google-this-mode 1))
-
-;; /mnt/c/Windows/System32/cmd.exe /C command
-;; cmd /c start filename_or_URL
-;; (start-process "cmd" nil "cmd.exe" "/C" "start" "http://www.google.com")
