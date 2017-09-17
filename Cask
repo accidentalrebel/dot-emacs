@@ -30,6 +30,7 @@
 (depends-on "eshell-up")
 (depends-on "evil")
 (depends-on "evil-smartparens")
+(depends-on "eww-lnum")
 (depends-on "exec-path-from-shell")
 (depends-on "expand-region")
 (depends-on "f")

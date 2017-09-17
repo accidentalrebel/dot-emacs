@@ -339,7 +339,10 @@
   (setq browse-url-browser-function 'eww-browse-url)
   (setq shr-external-browser '(lambda(url &rest ARGS)
 				(start-process "cmd" nil "cmd.exe" "/C" "start" url)
-				)))
+				))
+  :bind ( :map eww-mode-map
+	       ("f" . eww-lnum-follow)
+	       ("F" . eww-lnum-universal)))
 
 (use-package google-this
   :init
