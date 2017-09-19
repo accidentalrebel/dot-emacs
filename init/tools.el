@@ -309,7 +309,7 @@
 
 (use-package company
   :init
-  (setq company-idle-delay 1)
+  (setq company-idle-delay 0.25)
   (setq company-minimum-prefx-length 2)
   (add-hook 'after-init-hook 'global-company-mode)
   )
