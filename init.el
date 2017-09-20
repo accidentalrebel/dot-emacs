@@ -50,13 +50,17 @@
 ;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 (setq inhibit-startup-screen t)
-(calendar)
-(other-window 1)
 (switch-to-buffer "*splash*")
-(hackernews)
-(speed-type-text)
 
-;; (org-agenda-list)
+(calendar)
+(split-window-horizontally)
+(other-window 1)
+(org-agenda-list)
+(other-window 1)
+(hackernews)
+(split-window-horizontally)
+(other-window 1)
+(speed-type-text)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -113,7 +117,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "outline" :slant normal :weight normal :height 128 :width normal))))
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "outline" :slant normal :weight normal :height 148 :width normal))))
  '(aw-leading-char-face ((t (:background "cyan" :foreground "black" :height 2.0))))
  '(mode-line ((t (:background "dark slate gray" :foreground "cyan"))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "cyan"))))

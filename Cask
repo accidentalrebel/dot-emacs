@@ -94,7 +94,6 @@
 (depends-on "s")
 (depends-on "shut-up")
 (depends-on "simple-httpd")
-(depends-on "slack")
 (depends-on "smartparens")
 (depends-on "speed-type")
 (depends-on "sudoku")
