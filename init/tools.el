@@ -347,3 +347,7 @@
 (use-package google-this
   :init
   (google-this-mode 1))
+
+(use-package simpleclip
+  :init
+  (simpleclip-mode 1))

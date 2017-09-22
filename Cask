@@ -94,6 +94,7 @@
 (depends-on "s")
 (depends-on "shut-up")
 (depends-on "simple-httpd")
+(depends-on "simpleclip")
 (depends-on "smartparens")
 (depends-on "speed-type")
 (depends-on "sudoku")
