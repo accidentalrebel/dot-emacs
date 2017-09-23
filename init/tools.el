@@ -309,8 +309,9 @@
 
 (use-package company
   :init
-  (setq company-idle-delay 0.25)
-  (setq company-minimum-prefx-length 2)
+  (setq company-dabbrev-downcase nil)  
+  (setq company-idle-delay 0.3)
+  (setq company-minimum-prefx-length 3)
   (add-hook 'after-init-hook 'global-company-mode)
   )
 
