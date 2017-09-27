@@ -351,4 +351,7 @@
 
 (use-package simpleclip
   :init
-  (simpleclip-mode 1))
+  (simpleclip-mode)
+  )
+
+(use-package pomidor)

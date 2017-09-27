@@ -88,7 +88,7 @@
      (search category-keep))))
  '(package-selected-packages
    (quote
-    (simpleclip eww-lnum google-this request speed-type haxe-mode swiper hackernews alert async dash deferred git-commit markdown-mode company request-deferred drag-stuff expand-region flycheck-cask free-keys goto-chg idle-highlight-mode multiple-cursors eshell-up ivy-hydra counsel-projectile counsel ivy coin-ticker ido-vertical-mode flycheck-package keyfreq golden-ratio gotham-theme dired-du org s undo-tree websocket yaml-mode hydra list-unicode-display diminish magit-popup nyan-mode imgur twittering-mode elmacro csv-mode all-the-icons flycheck package-build restart-emacs smartparens web-mode o-blog org-page sudoku open-junk-file json-mode which-key ag with-editor yasnippet pallet php-mode f 2048-game ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode xml-rpc haxe-imports evil-smartparens org-journal monky magit evil better-defaults ##)))
+    (pomidor simpleclip eww-lnum google-this request speed-type haxe-mode swiper hackernews alert async dash deferred git-commit markdown-mode company request-deferred drag-stuff expand-region flycheck-cask free-keys goto-chg idle-highlight-mode multiple-cursors eshell-up ivy-hydra counsel-projectile counsel ivy coin-ticker ido-vertical-mode flycheck-package keyfreq golden-ratio gotham-theme dired-du org s undo-tree websocket yaml-mode hydra list-unicode-display diminish magit-popup nyan-mode imgur twittering-mode elmacro csv-mode all-the-icons flycheck package-build restart-emacs smartparens web-mode o-blog org-page sudoku open-junk-file json-mode which-key ag with-editor yasnippet pallet php-mode f 2048-game ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode xml-rpc haxe-imports evil-smartparens org-journal monky magit evil better-defaults ##)))
  '(send-mail-function nil)
  '(vc-annotate-background "#181e26")
  '(vc-annotate-color-map
@@ -120,6 +120,8 @@
  '(default ((t (:family "DejaVu Sans Mono" :foundry "outline" :slant normal :weight normal :height 148 :width normal))))
  '(aw-leading-char-face ((t (:background "cyan" :foreground "black" :height 2.0))))
  '(mode-line ((t (:background "dark slate gray" :foreground "cyan"))))
+ '(pomidor-time-face ((t (:height 2.0))))
+ '(pomidor-timer-face ((t (:height 2.0))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "cyan"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "orange"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "chartreuse"))))

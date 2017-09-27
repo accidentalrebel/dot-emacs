@@ -1,3 +1,4 @@
+
 (defun arebel-haxe-build-hxml (
   (interactive)
   (shell-command (concat (replace-regexp-in-string "\n$" "" (shell-command-to-string "hg root")) "\\build.bat"))
@@ -155,6 +156,22 @@ Useful for quick devving with elisp."
       (if (and (get-buffer-window buffer t))
 	  (switch-to-buffer-other-frame buffer)
 	(switch-to-buffer-other-window buffer)))))
+
+(defun arebel-set-clipboard-data (str-val)
+  "Puts text in Windows clipboard. Copying to Windows from WSL does not
+work on my end so this one is a temporary solution.
+
+This function is called from within the simpleclip package when copy or
+copy command is issued."
+  (start-process "cmd" nil "cmd.exe" "/C" (concat "echo " (replace-regexp-in-string "\n" "\r" str-val) " | clip.exe")))
+
+;; The following is a hack to temporarily fix the copying to the windows clipboard.
+;; It calls a custom function called arebel-set-clipboard-data.
+(when (and (eq system-type 'gnu/linux)
+	   (not (fboundp 'w32-set-clipboard-data))
+	   (fboundp 'arebel-set-clipboard-data))
+  (defun w32-set-clipboard-data (str-val)
+    (arebel-set-clipboard-data str-val)))
 
 (defun devenv-setup-build-keys (to-call-on-build)
   "A helper that set the keys for quick elisp devving.
