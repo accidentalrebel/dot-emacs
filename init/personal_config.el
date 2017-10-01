@@ -6,8 +6,8 @@
 (use-package org-page
   :init
   (setq op/repository-directory (concat (if (equal system-type 'gnu/linux)
-					    user--linux-dropbox-folder
-					  user--win-dropbox-folder) "orgmode/blog"))
+					    (concat user--linux-arebel-home-folder "Dropbox/")
+					  (concat user--win-arebel-home-folder "Dropbox/")) "orgmode/blog"))
   (setq op/site-domain "https://accidentalrebel.github.io/")
   (setq op/site-main-title "Accidental Rebel")
   (setq op/site-sub-title "My personal blog.")
@@ -15,8 +15,8 @@
   (setq op/personal-disqus-shortname "accidentalrebel")
   ;;  (setq op/personal-avatar user--blog-avatar-link)
   (setq op/theme-root-directory (concat (if (equal system-type 'gnu/linux)
-					    user--linux-dropbox-folder
-					  user--win-dropbox-folder) "orgmode/blog/themes"))
+					    (concat user--linux-arebel-home-folder "Dropbox/")
+					  (concat user--win-arebel-home-folder "Dropbox/")) "orgmode/blog/themes"))
   (setq op/theme 'arebel)
   )
 
@@ -25,20 +25,11 @@
   (setq dokuwiki-xml-rpc-url user--gamedevph-xmlrpc-url
 	dokuwiki-login-user-name user--gamedevph-username))
 
-(if (equal system-type 'gnu/linux)
-    (progn
-      (setenv "development" user--linux-dev-folder)
-      (setenv "dropbox" user--linux-dropbox-folder)
-      )
-  (progn
-    (setenv "development" user--win-dev-folder)
-    (setenv "dropbox" user--win-dropbox-folder)
-    ))
-
 (use-package slack
   :commands (slack-start)
   :init
   (setq slack-completing-read-function 'ido-completing-read)
+  (setq slack-request-timeout 30)
   :config
   (slack-register-team
    :name "emacs-slack"
@@ -50,10 +41,19 @@
   :bind (("C-c s s" . slack-start)
 	 ("C-c s c" . slack-channel-select)))
 
-(use-package eshell
-  :config
-  (setenv "desktop" (concat user--win-arebel-home-folder "Desktop"))
+(use-package eshell)
+
+(if (equal system-type 'gnu/linux)
+    (progn
+      (setenv "development" user--linux-dev-folder)
+      (setenv "chefwars" user--linux-chefwars-folder)
+      (setenv "desktop" (concat user--linux-arebel-home-folder "Desktop"))
+      (setenv "dropbox" (concat user--linux-arebel-home-folder "Dropbox"))
+      (setenv "downloads" (concat user--linux-arebel-home-folder "Downloads")))
+  (setenv "development" user--win-dev-folder)
   (setenv "chefwars" user--win-chefwars-folder)
+  (setenv "desktop" (concat user--win-arebel-home-folder "Desktop"))
+  (setenv "dropbox" (concat user--win-arebel-home-folder "Dropbox"))
   (setenv "downloads" (concat user--win-arebel-home-folder "Downloads")))
 
 (setq user-mail-address user--email	
@@ -66,7 +66,7 @@
 
 (setenv "PATH" (concat
 		"c:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Auxiliary/Build" ";"
-		(concat user--win-development-folder "projects/accidentalrebel/handmade_hero/misc") ";"
+		(concat user--win-dev-folder "projects/accidentalrebel/handmade_hero/misc") ";"
 		(getenv "PATH")))
 
 

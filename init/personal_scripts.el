@@ -49,12 +49,12 @@
 
 (defun arebel-blog-commit ()
   (interactive)
-  (let ((blog-path (concat user--linux-dropbox-folder "orgmode/blog")))
+  (let ((blog-path (concat user--linux-arebel-home-folder "Dropbox/orgmode/blog")))
     (magit-git-command (concat "git -C " blog-path " add -A"))
     (magit-git-command (concat "git -C " blog-path " commit -m \"" (format-time-string "%Y-%m-%d_%H-%M-%S") "\""))))
 
 (defun arebel-blog-publish ()
   (interactive)
-  (let ((blog-path (concat user--linux-dropbox-folder "orgmode/blog")))
+  (let ((blog-path (concat user--linux-arebel-home-folder "Dropbox/orgmode/blog")))
     (magit-git-command (concat "git -C " blog-path " push"))
     (op/do-publication t nil nil t t)))

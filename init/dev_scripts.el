@@ -21,12 +21,15 @@
 (defun arebel-init-projectile-project-scripts ()
   (interactive)
   (let ((target (concat (projectile-project-root) "project.el")))
-    (when (file-exists-p target)
-      (with-temp-buffer
-	(setq default-directory (projectile-project-root))
-	(load-file target))
+    (if (file-exists-p target)
+	(with-temp-buffer
+	  (setq default-directory (projectile-project-root))
+	  (load-file target))
+      (message "project.el from %s does not exist!" target)
       )
     ))
+
+(add-hook 'projectile-after-switch-project-hook 'arebel-init-projectile-project-scripts)
 
 ;; 2DK
 (defun 2dk-run-project-debug ()
@@ -164,6 +167,22 @@ work on my end so this one is a temporary solution.
 This function is called from within the simpleclip package when copy or
 copy command is issued."
   (start-process "cmd" nil "cmd.exe" "/C" (concat "echo " (replace-regexp-in-string "\n" "\r" str-val) " | clip.exe")))
+
+(defun arebel-minify-buffer-contents()
+  "Minifies the buffer contents by removing whitespaces."
+  (interactive)
+  (delete-whitespace-rectangle (point-min) (point-max))
+  (mark-whole-buffer)
+  (arebel-remove-newlines-in-region)
+  )
+
+(defun arebel-remove-newlines-in-region ()
+  "Removes all newlines in the region."
+  (interactive)
+  (let (buffer-undo-list)
+    (narrow-to-region (point) (mark))
+    (goto-char (point-min))
+    (while (search-forward "\n" nil t) (replace-match "" nil t))))
 
 ;; The following is a hack to temporarily fix the copying to the windows clipboard.
 ;; It calls a custom function called arebel-set-clipboard-data.

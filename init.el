@@ -38,6 +38,9 @@
 (when (file-exists-p "~/.emacs.d/dev/haxe-tools/haxe-tools.el")
   (require 'haxe-tools "~/.emacs.d/dev/haxe-tools/haxe-tools"))
 
+(when (file-exists-p "~/.emacs.d/dev/emacs_asana/emacs_asana.el")
+  (require 'emacs-asana "~/.emacs.d/dev/emacs_asana/emacs_asana.el"))
+
 (when (file-exists-p "~/.emacs.d/dev/tic-tac-toe/tic-tac-toe.el")
   (add-to-list 'load-path "~/.emacs.d/dev/tic-tac-toe")
   (require 'tic-tac-toe))
@@ -48,19 +51,6 @@
 (show-paren-mode 1)
 (fset 'yes-or-no-p 'y-or-n-p)
 ;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-(setq inhibit-startup-screen t)
-(switch-to-buffer "*splash*")
-
-(calendar)
-(split-window-horizontally)
-(other-window 1)
-(org-agenda-list)
-(other-window 1)
-(hackernews)
-(split-window-horizontally)
-(other-window 1)
-(speed-type-text)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -120,6 +110,7 @@
  '(default ((t (:family "DejaVu Sans Mono" :foundry "outline" :slant normal :weight normal :height 148 :width normal))))
  '(aw-leading-char-face ((t (:background "cyan" :foreground "black" :height 2.0))))
  '(mode-line ((t (:background "dark slate gray" :foreground "cyan"))))
+ '(pomidor-break-face ((t (:inherit (quote font-lock-constant-face)))))
  '(pomidor-time-face ((t (:height 2.0))))
  '(pomidor-timer-face ((t (:height 2.0))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "cyan"))))
@@ -136,4 +127,16 @@
  '(tomatinho-current-pause-face ((t (:inherit tomatinho-pause-face :height 2.5))))
  '(tomatinho-time-face ((t (:height 2.5 :width semi-condensed :family "DejaVu Sans")))))
 
-(provide 'init)
+(setq inhibit-startup-screen t)
+(switch-to-buffer "*splash*")
+
+(calendar)
+(split-window-horizontally)
+(other-window 1)
+(org-agenda-list)
+(other-window 1)
+(switch-to-buffer "*hackernews top stories*")
+(hackernews)
+(split-window-horizontally)
+(other-window 1)
+(speed-type-text)
