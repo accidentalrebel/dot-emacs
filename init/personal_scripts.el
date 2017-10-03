@@ -17,12 +17,16 @@
 			(let ((scheduled-time (org-get-scheduled-time (point)))
 			      (entry-content (progn
 					       (org-schedule '(4))
-					       (org-get-entry))))
+					       (org-get-entry)))
+			      (tags-string (concat (nth 5 (org-heading-components)) "quick_note:"))
+			      )
 			  (save-excursion
 			    (with-temp-buffer
 			      (let ((org-journal-time-format ""))
 				(org-journal-new-entry nil scheduled-time))
 			      (insert (format-time-string org-journal-time-format scheduled-time))
+			      (org-set-tags-to tags-string)
+			      (org-set-tags t)
 			      (forward-line 1)
 			      (insert entry-content)
 			      )))
