@@ -10,6 +10,27 @@
   (interactive)
   (start-process "putty" nil "putty.exe" "-load" "LinodeARebel" user--linode-box-connect-url))
 
+(defun arebel-quick-notes-to-journal-entry ()
+  (interactive)
+  (let ((path (concat user--linux-arebel-home-folder "Dropbox/orgmode/notes/a_quick_notes.org")))
+    (org-map-entries '(lambda ()
+			(let ((scheduled-time (org-get-scheduled-time (point)))
+			      (entry-content (progn
+					       (org-schedule '(4))
+					       (org-get-entry))))
+			  (save-excursion
+			    (with-temp-buffer
+			      (let ((org-journal-time-format ""))
+				(org-journal-new-entry nil scheduled-time))
+			      (insert (format-time-string org-journal-time-format scheduled-time))
+			      (forward-line 1)
+			      (insert entry-content)
+			      )))
+			)
+		     nil (list path))
+    (write-region "" nil path)
+  ))
+
 (defun arebel-org-journal-entry-to-org-page-post ()
   "Copy the org-journal entry at point and then convert it to a org-page new post buffer."
   (interactive)
