@@ -173,16 +173,8 @@ copy command is issued."
   (interactive)
   (delete-whitespace-rectangle (point-min) (point-max))
   (mark-whole-buffer)
-  (arebel-remove-newlines-in-region)
-  )
-
-(defun arebel-remove-newlines-in-region ()
-  "Removes all newlines in the region."
-  (interactive)
-  (let (buffer-undo-list)
-    (narrow-to-region (point) (mark))
-    (goto-char (point-min))
-    (while (search-forward "\n" nil t) (replace-match "" nil t))))
+  (goto-char (point-min))
+  (while (search-forward "\n" nil t) (replace-match "" nil t)))
 
 ;; The following is a hack to temporarily fix the copying to the windows clipboard.
 ;; It calls a custom function called arebel-set-clipboard-data.

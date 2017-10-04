@@ -214,7 +214,7 @@
 (use-package golden-ratio
   :diminish (golden-ratio-mode . "")
   :config
-  (golden-ratio-mode)tt
+  (golden-ratio-mode)
 
   (add-to-list 'golden-ratio-extra-commands 'ace-window)
   (add-to-list 'golden-ratio-inhibit-functions 'pl/helm-alive-p)
@@ -365,7 +365,6 @@
 (use-package simpleclip
   :diminish (simpleclip-mode . "")
   :init
-  (simpleclip-mode)
-  )
+  (simpleclip-mode))
 
 (use-package pomidor)
