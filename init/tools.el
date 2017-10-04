@@ -1,4 +1,5 @@
 (use-package ivy
+  :diminish (ivy-mode . "")
   :init
   (ivy-mode 1)
   :config
@@ -27,6 +28,7 @@
 (use-package counsel)
 
 (use-package counsel-projectile
+  :diminish (projectile-mode . "")
   :init
   (projectile-mode)
   :config
@@ -115,7 +117,7 @@
     ("u" sp-forward-sexp "forward-sexp")
     ("." sp-up-sexp "up-sexp")
     ("e" sp-down-sexp "down-sexp")
-    
+
     ("j" sp-kill-sexp "kill-sexp")
     ("a" sp-raise-sexp "raise-sexp")
     ("p" sp-forward-slurp-sexp "f-slurp")
@@ -126,6 +128,9 @@
     ("i" undo "undo")
     ("y" undo-tree-visualize "undo-tree" :color blue)
     ("x" helm-show-kill-ring "helm-kill-ring" :color blue)
+
+    (";" sp-backward-parallel-sexp "b-parallel")
+    ("'" sp-forward-parallel-sexp "f-parallel")
 
     ;; RIGHT HAND SIDE
     ("-" end-of-buffer "eob")
@@ -193,7 +198,7 @@
 
 (use-package bind-key)
 
-(use-package smartparens-config
+(use-package smartparens
   :diminish (smartparens-mode . "")
   :init
   (add-hook 'emacs-lisp-mode-hook #'smartparens-mode)
@@ -209,7 +214,7 @@
 (use-package golden-ratio
   :diminish (golden-ratio-mode . "")
   :config
-  (golden-ratio-mode)
+  (golden-ratio-mode)tt
 
   (add-to-list 'golden-ratio-extra-commands 'ace-window)
   (add-to-list 'golden-ratio-inhibit-functions 'pl/helm-alive-p)
@@ -217,6 +222,12 @@
   (defun pl/helm-alive-p ()
     (and (boundp 'helm-alive-p)
 	 (symbol-value 'helm-alive-p))))
+
+
+(use-package flycheck
+  :diminish (flycheck-mode . "")
+  :config
+  (add-hook 'emacs-lisp-mode-hook 'flycheck-mode))
 
 (use-package flycheck-package
   :config
@@ -308,6 +319,7 @@
   )
 
 (use-package company
+  :diminish (company-mode . "")
   :init
   (setq company-dabbrev-downcase nil)  
   (setq company-idle-delay 0.3)
@@ -346,10 +358,12 @@
 	       ("F" . eww-lnum-universal)))
 
 (use-package google-this
+  :diminish (google-this-mode . "")
   :init
   (google-this-mode 1))
 
 (use-package simpleclip
+  :diminish (simpleclip-mode . "")
   :init
   (simpleclip-mode)
   )

@@ -1,4 +1,6 @@
- (defun arebel-putty-connect-linode-zuko ()
+;;; personal_scripts.el --- 
+
+(defun arebel-putty-connect-linode-zuko ()
   (interactive)
   (start-process "putty" nil "putty.exe" "-load" "LinodeARebel" user--linode-zuko-connect-url))
 
@@ -12,6 +14,7 @@
 
 (defun arebel-quick-notes-to-journal-entry ()
   (interactive)
+  "Converts notes made through Ogzly to Org-Journal entries."
   (let ((path (concat user--linux-arebel-home-folder "Dropbox/orgmode/notes/a_quick_notes.org")))
     (org-map-entries '(lambda ()
 			(let ((scheduled-time (org-get-scheduled-time (point)))
@@ -21,7 +24,7 @@
 			      (tags-string (concat (nth 5 (org-heading-components)) "quick_note:"))
 			      )
 			  (save-excursion
-			    (with-temp-buffer
+ 			    (with-temp-buffer
 			      (let ((org-journal-time-format ""))
 				(org-journal-new-entry nil scheduled-time))
 			      (insert (format-time-string org-journal-time-format scheduled-time))
@@ -32,8 +35,7 @@
 			      )))
 			)
 		     nil (list path))
-    (write-region "" nil path)
-  ))
+    (write-region "" nil path)))
 
 (defun arebel-org-journal-entry-to-org-page-post ()
   "Copy the org-journal entry at point and then convert it to a org-page new post buffer."
@@ -83,3 +85,7 @@
   (let ((blog-path (concat user--linux-arebel-home-folder "Dropbox/orgmode/blog")))
     (magit-git-command (concat "git -C " blog-path " push"))
     (op/do-publication t nil nil t t)))
+
+(provide 'personal_scripts)
+
+;;; personal_scripts.el ends here
