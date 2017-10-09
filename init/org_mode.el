@@ -48,6 +48,8 @@
 	  ("technical" . ?t)
 	  ("tv" . ?v)))
 
+  (setq org-crypt-disable-auto-save 'encrypt)
+
   ;;(bind-key "P" 'org-pomodoro org-agenda-mode-map)
 
   :bind (("C-c l" . org-store-link)
