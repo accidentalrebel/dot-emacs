@@ -3,6 +3,15 @@
 (setq backup-directory-alist `((".*" . ,temporary-file-directory))
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
+(setq shr-external-browser '(lambda(url &rest ARGS)
+			      (start-process "cmd" nil "cmd.exe" "/C" "start" url)
+			      ))
+
+(setq browse-url-browser-function
+      '(("http://msi:8080" . (lambda (url &optional ARGS)
+			       (funcall shr-external-browser url ARGS)))
+	("." . eww-browse-url )))
+
 (use-package org-page
   :init
   (setq op/repository-directory (concat (if (equal system-type 'gnu/linux)

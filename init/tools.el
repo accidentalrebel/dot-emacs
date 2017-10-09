@@ -342,14 +342,6 @@
 (use-package hackernews)
 
 (use-package eww
-  :init
-  (setq shr-external-browser '(lambda(url &rest ARGS)
-				(start-process "cmd" nil "cmd.exe" "/C" "start" url)
-				))
-  (setq browse-url-browser-function
-      '(("accidentalrebel.com" . shr-external-browser)
-	("." . eww-browse-url )))
-
   :bind ( :map eww-mode-map
 	       ("f" . eww-lnum-follow)
 	       ("F" . eww-lnum-universal)))
