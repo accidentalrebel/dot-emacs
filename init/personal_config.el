@@ -13,6 +13,7 @@
   (setq op/site-sub-title "My personal blog.")
   (setq op/personal-github-link "https://github.com/accidentalrebel/")
   (setq op/personal-disqus-shortname "accidentalrebel")
+  (setq op/personal-google-analytics-id user--blog-google-analytics-id)
   ;;  (setq op/personal-avatar user--blog-avatar-link)
   (setq op/theme-root-directory (concat (if (equal system-type 'gnu/linux)
 					    (concat user--linux-arebel-home-folder "Dropbox/")

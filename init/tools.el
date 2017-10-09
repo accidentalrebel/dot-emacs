@@ -165,6 +165,9 @@
     ("h" split-window-right "split-horizontally")
     ("g" split-window-below "split-vertically")
 
+    ("," text-scale-decrease "text-scale-dec")
+    ("p" text-scale-increase "text-scale-inc")
+
     ("<SPC>" hydra-flush "exit" :exit t)
     )
   
@@ -234,31 +237,30 @@
   (eval-after-load 'flycheck
     '(flycheck-package-setup)))
 
-(use-package keyfreq
-  :config
-  (setq keyfreq-excluded-commands
-	'(self-insert-command
-	  abort-recursive-edit
-	  forward-char
-	  backward-char
-	  previous-line
-	  next-line
-	  org-agenda-next-line
-	  org-agenda-previous-line
-	  org-self-insert-command
-	  org-delete-backward-char
-	  undo-tree-undo
-	  undo-tree-redo
-	  mwheel-scroll
-	  mouse-set-point
-	  mouse-drag-region
-	  sp-backward-delete-char
-	  delete-backward-char
-	  helm-previous-line
-	  helm-next-line))
-  (keyfreq-mode 1)
-  (keyfreq-autosave-mode 1))
-
+;; (use-package keyfreq
+;;   :config
+;;   (setq keyfreq-excluded-commands
+;; 	'(self-insert-command
+;; 	  abort-recursive-edit
+;; 	  forward-char
+;; 	  backward-char
+;; 	  previous-line
+;; 	  next-line
+;; 	  org-agenda-next-line
+;; 	  org-agenda-previous-line
+;; 	  org-self-insert-command
+;; 	  org-delete-backward-char
+;; 	  undo-tree-undo
+;; 	  undo-tree-redo
+;; 	  mwheel-scroll
+;; 	  mouse-set-point
+;; 	  mouse-drag-region
+;; 	  sp-backward-delete-char
+;; 	  delete-backward-char
+;; 	  helm-previous-line
+;; 	  helm-next-line))
+;;   (keyfreq-mode 1)
+;;   (keyfreq-autosave-mode 1))
 
 (use-package ido-vertical-mode
   :config
@@ -329,30 +331,25 @@
 
 (use-package eshell-up)
 
-(use-package coin-ticker
-  :config
-  (setq coin-ticker-syms '("BTC" "BCH" "LTC"))
-  (coin-ticker-mode 1)
-  )
+;; (use-package coin-ticker
+;;   :config
+;;   (setq coin-ticker-syms '("BTC" "BCH" "LTC"))
+;;   (coin-ticker-mode 1)
+;;   )
 
 (use-package request)
 (use-package request-deferred)
-
-;;; tools.el ends here
-
-(use-package eww
-  :init
-  (setq shr-color-visible-luminance-min 70)
-  )
-
 (use-package hackernews)
 
 (use-package eww
   :init
-  (setq browse-url-browser-function 'eww-browse-url)
   (setq shr-external-browser '(lambda(url &rest ARGS)
 				(start-process "cmd" nil "cmd.exe" "/C" "start" url)
 				))
+  (setq browse-url-browser-function
+      '(("accidentalrebel.com" . shr-external-browser)
+	("." . eww-browse-url )))
+
   :bind ( :map eww-mode-map
 	       ("f" . eww-lnum-follow)
 	       ("F" . eww-lnum-universal)))
@@ -368,3 +365,5 @@
   (simpleclip-mode))
 
 (use-package pomidor)
+
+;;; tools.el ends here

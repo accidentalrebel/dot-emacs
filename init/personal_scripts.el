@@ -35,7 +35,14 @@
 			      )))
 			)
 		     nil (list path))
-    (write-region "" nil path)))
+    (write-region "" nil path)
+    
+    (with-temp-file path
+      (revert-buffer t t)
+      )
+    ;; (pop-to-buffer "quick_notes.org")
+    ;; (revert-buffer r t t)
+    ))
 
 (defun arebel-org-journal-entry-to-org-page-post ()
   "Copy the org-journal entry at point and then convert it to a org-page new post buffer."
@@ -88,9 +95,18 @@
     (magit-git-command (concat "git -C " blog-path " add -A"))
     (magit-git-command (concat "git -C " blog-path " commit -m \"" (format-time-string "%Y-%m-%d_%H-%M-%S") "\""))))
 
+(defun arebel-blog-amend ()
+  (interactive)
+  (let* ((blog-path (concat user--linux-arebel-home-folder "Dropbox/orgmode/blog"))
+	 (default-directory blog-path))
+    (magit-git-command (concat "git checkout source"))
+    (magit-git-command (concat "git -C " blog-path " add -A"))
+    (magit-git-command (concat "git -C " blog-path " commit --amend  -m \"" (format-time-string "%Y-%m-%d_%H-%M-%S") "\""))))
+
 (defun arebel-blog-publish ()
   (interactive)
-  (let ((blog-path (concat user--linux-arebel-home-folder "Dropbox/orgmode/blog")))
+  (let* ((blog-path (concat user--linux-arebel-home-folder "Dropbox/orgmode/blog"))
+	(default-directory blog-path))
     (op/do-publication t nil nil t t)
     (magit-git-command (concat "git -C " blog-path " push"))))
 
