@@ -15,7 +15,8 @@
 (defun arebel-quick-notes-to-journal-entry ()
   (interactive)
   "Converts notes made through Ogzly to Org-Journal entries."
-  (let ((path (concat user--linux-arebel-home-folder "Dropbox/orgmode/notes/a_quick_notes.org")))
+  (let ((path (concat user--linux-arebel-home-folder "Dropbox/orgmode/notes/a_quick_notes.org"))
+	(current-buffer-name "a_quick_notes.org"))
     (org-map-entries '(lambda ()
 			(let ((scheduled-time (org-get-scheduled-time (point)))
 			      (entry-content (progn
@@ -35,13 +36,11 @@
 			      )))
 			)
 		     nil (list path))
-    (write-region "" nil path)
-    
-    (with-temp-file path
-      (revert-buffer t t)
-      )
-    ;; (pop-to-buffer "quick_notes.org")
-    ;; (revert-buffer r t t)
+
+    (pop-to-buffer current-buffer-name)
+    (erase-buffer)
+    (save-buffer)
+    (kill-buffer current-buffer-name)
     ))
 
 (defun arebel-org-journal-entry-to-org-page-post ()
