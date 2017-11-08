@@ -30,6 +30,10 @@
 (use-package counsel-projectile
   :diminish (projectile-mode . "")
   :init
+ ;; NOTE: Temp workaround for slowdown
+  (setq projectile-mode-line
+	'(:eval (format " Projectile[%s]"
+                        (projectile-project-name))))
   (projectile-mode)
   :config
   (setq projectile-completion-system 'ivy)
@@ -228,9 +232,12 @@
 
 
 (use-package flycheck
-  :diminish (flycheck-mode . "")
+  ;;:diminish (flycheck-mode . "")
+  :init
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
   :config
-  (add-hook 'emacs-lisp-mode-hook 'flycheck-mode))
+  (add-hook 'emacs-lisp-mode-hook 'flycheck-mode)
+  (add-hook 'rust-mode-hook 'flycheck-mode))
 
 (use-package flycheck-package
   :config
@@ -342,6 +349,8 @@
 (use-package hackernews)
 
 (use-package eww
+  :init
+  (setq shr-color-visible-luminance-min 70)
   :bind ( :map eww-mode-map
 	       ("f" . eww-lnum-follow)
 	       ("F" . eww-lnum-universal)))

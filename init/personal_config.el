@@ -79,4 +79,8 @@
 		(concat user--win-dev-folder "projects/accidentalrebel/handmade_hero/misc") ";"
 		(getenv "PATH")))
 
-
+(require 'ansi-color)
+(defun arebel-ansi-colorize-buffer ()
+  (let ((buffer-read-only nil))
+    (ansi-color-apply-on-region (point-min) (point-max))))
+(add-hook 'compilation-filter-hook 'arebel-ansi-colorize-buffer)
