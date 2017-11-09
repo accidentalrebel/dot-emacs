@@ -8,10 +8,16 @@
   				    (bind-key "P" 'org-pomodoro org-agenda-mode-map)))
   :config
   (setq org-directory (if (eq system-type 'gnu/linux)
-			  (expand-file-name (concat user--linux-arebel-home-folder "Dropbox/orgmode/"))
+			  (progn
+			    (if (string= (system-name) "Karbuntu")
+				(expand-file-name (concat user--linux-karbuntu-arebel-home-folder "Dropbox/orgmode/"))
+			      (expand-file-name (concat user--linux-msi-arebel-home-folder "Dropbox/orgmode/"))))
 			(expand-file-name (concat user--win-arebel-home-folder "Dropbox/orgmode/")))
   	org-default-notes-file (if (eq system-type 'gnu/linux)
-				   (expand-file-name (concat user--linux-arebel-home-folder "Dropbox/orgmode/uncategorized.org"))
+				   (progn
+				    (if (string= (system-name) "Karbuntu")
+					(expand-file-name (concat user--linux-karbuntu-arebel-home-folder "Dropbox/orgmode/uncategorized.org"))
+				      (expand-file-name (concat user--linux-msi-arebel-home-folder "Dropbox/orgmode/uncategorized.org"))))
 				 (expand-file-name (concat user--win-arebel-home-folder "Dropbox/orgmode/uncategorized.org")))
   	org-agenda-files (list (concat org-directory "todos/"))
   	org-refile-targets '((org-agenda-files . (:maxlevel . 6)))
@@ -61,9 +67,13 @@
 
 (use-package org-journal
   :init
-  (setq org-journal-dir (if (eq system-type 'gnu/linux)
-			    (expand-file-name (concat user--linux-arebel-home-folder "Dropbox/orgmode/journal"))
-			  (expand-file-name  (concat user--win-arebel-home-folder "Dropbox/orgmode/journal"))))
+  (setq org-journal-dir (cond
+			 ((and (eq system-type 'gnu/linux) (string= system-name "Karbuntu"))
+			  (expand-file-name (concat user--linux-karbuntu-arebel-home-folder "Dropbox/orgmode/journal")))
+			 ((eq system-type 'gnu/linux)
+			  (expand-file-name (concat user--linux-msi-arebel-home-folder "Dropbox/orgmode/journal")))
+			 (t
+			  (expand-file-name  (concat user--win-arebel-home-folder "Dropbox/orgmode/journal")))))
   (setq org-journal-file-format "%Y%m%d.org")
   (setq org-journal-enable-encryption t)    
   (add-hook 'org-journal-mode-hook (lambda()

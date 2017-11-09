@@ -15,7 +15,10 @@
 (use-package org-page
   :init
   (setq op/repository-directory (concat (if (equal system-type 'gnu/linux)
-					    (concat user--linux-arebel-home-folder "Dropbox/")
+					    (progn
+					      (if (string= (system-name) "Karbuntu")
+						  (concat user--linux-karbuntu-arebel-home-folder "Dropbox/")
+						(concat user--linux-msi-arebel-home-folder "Dropbox/")))
 					  (concat user--win-arebel-home-folder "Dropbox/")) "orgmode/blog"))
   (setq op/site-domain "https://accidentalrebel.github.io/")
   (setq op/site-main-title "Accidental Rebel")
@@ -25,7 +28,10 @@
   (setq op/personal-google-analytics-id user--blog-google-analytics-id)
   ;;  (setq op/personal-avatar user--blog-avatar-link)
   (setq op/theme-root-directory (concat (if (equal system-type 'gnu/linux)
-					    (concat user--linux-arebel-home-folder "Dropbox/")
+					    (progn
+					      (if (string= (system-name) "Karbuntu")
+						  (concat user--linux-karbuntu-arebel-home-folder "Dropbox/")
+						(concat user--linux-msi-arebel-home-folder "Dropbox/")))
 					  (concat user--win-arebel-home-folder "Dropbox/")) "orgmode/blog/themes"))
   (setq op/theme 'arebel)
   )
@@ -55,11 +61,17 @@
 
 (if (equal system-type 'gnu/linux)
     (progn
-      (setenv "development" user--linux-dev-folder)
-      (setenv "chefwars" user--linux-chefwars-folder)
-      (setenv "desktop" (concat user--linux-arebel-home-folder "Desktop"))
-      (setenv "dropbox" (concat user--linux-arebel-home-folder "Dropbox"))
-      (setenv "downloads" (concat user--linux-arebel-home-folder "Downloads")))
+      (if (string= (system-name) "MSI")
+	  (progn
+	    (setenv "development" user--linux-msi-dev-folder)
+	    (setenv "chefwars" user--linux-msi-chefwars-folder)
+	    (setenv "desktop" (concat user--linux-msi-arebel-home-folder "Desktop"))
+	    (setenv "dropbox" (concat user--linux-msi-arebel-home-folder "Dropbox"))
+	    (setenv "downloads" (concat user--linux-msi-arebel-home-folder "Downloads")))
+	(setenv "dropbox" (concat user--linux-karbuntu-arebel-home-folder "Dropbox"))
+	(setenv "downloads" (concat user--linux-karbuntu-arebel-home-folder "Downloads")))
+	)
+
   (setenv "development" user--win-dev-folder)
   (setenv "chefwars" user--win-chefwars-folder)
   (setenv "desktop" (concat user--win-arebel-home-folder "Desktop"))
