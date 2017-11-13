@@ -360,10 +360,12 @@
   :init
   (google-this-mode 1))
 
-(use-package simpleclip
-  :diminish (simpleclip-mode . "")
-  :init
-  (simpleclip-mode))
+(if (string= (system-name) "Karbuntu")
+    (setq x-select-enable-clipboard t)
+  (use-package simpleclip
+    :diminish (simpleclip-mode . "")
+    :init
+    (simpleclip-mode)))
 
 (use-package pomidor)
 

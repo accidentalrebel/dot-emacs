@@ -139,3 +139,7 @@
 (other-window 1)
 (speed-type-text)
 
+(if (string= (system-name) "Karbuntu")
+    (set-face-attribute 'default nil :height 120))
+
+
