@@ -200,3 +200,10 @@ Pressing F6 runs ert-runner."
 (global-set-key (kbd "<f5>") '2dk-run-project-debug)
 (global-set-key (kbd "<f6>") '2dk-build-offline-package)
 (global-set-key (kbd "<f7>") 'arebel-haxe-run-hxml)
+
+(when (string= (system-name) "Karbuntu")
+  (defun chefwars-tramp-connect ()
+    (interactive)
+    (find-file (concat "/ssh:" user--chefwars-vm-host ":/cygdrive/d/development/projects/mindcake/chefwars_2dkit/"))
+    (pop-to-buffer "*test*")
+    (eshell)))

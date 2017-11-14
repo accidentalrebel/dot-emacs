@@ -96,3 +96,5 @@
   (let ((buffer-read-only nil))
     (ansi-color-apply-on-region (point-min) (point-max))))
 (add-hook 'compilation-filter-hook 'arebel-ansi-colorize-buffer)
+
+(setq shell-command-switch "-ic")
