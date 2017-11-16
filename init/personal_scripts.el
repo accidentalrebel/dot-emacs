@@ -1,4 +1,28 @@
-;;; personal_scripts.el --- 
+;;; personal_scripts.el ---
+;;; Code:
+
+(defun arebel-show-splash-screen ()
+  "Show the splash screen.
+
+Closes all buffers and opens Hackernews, Elfeed, Calendar, Org-Agenda, and Speed Type buffers."
+  (interactive)
+  (switch-to-buffer "*splash*")
+  (delete-other-windows)
+
+  (calendar)
+  (split-window-vertically)
+  (split-window-horizontally)
+  (other-window 1)
+  (org-agenda-list)
+  (other-window 2)
+  (switch-to-buffer "*hackernews top stories*")
+  (hackernews 10)
+  (split-window-horizontally)
+  (other-window 1)
+  (elfeed)
+  (goto-char (point-min))
+  (other-window 3)
+  (speed-type-text))
 
 (defun arebel-putty-connect-linode-zuko ()
   (interactive)
@@ -15,7 +39,7 @@
 (defun arebel-quick-notes-to-journal-entry ()
   (interactive)
   "Converts notes made through Ogzly to Org-Journal entries."
-  (let ((path (concat user--linux-arebel-home-folder "Dropbox/orgmode/notes/a_quick_notes.org"))
+  (let ((path (concat user--linux-karbuntu-arebel-home-folder "Dropbox/orgmode/notes/a_quick_notes.org"))
 	(current-buffer-name "a_quick_notes.org"))
     (org-map-entries '(lambda ()
 			(let ((scheduled-time (org-get-scheduled-time (point)))

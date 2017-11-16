@@ -56,7 +56,7 @@
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
-   ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#e090d7" "#8cc4ff" "#eeeeec"])
+   ["#1B2229" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#DFDFDF"])
  '(asana-selected-workspace nil t)
  '(csv-field-index-mode t)
  '(csv-separators (quote ("," ";")))
@@ -66,6 +66,9 @@
  '(doom-one-brighter-comments t)
  '(doom-one-brighter-modeline nil)
  '(doom-one-comment-bg t)
+ '(elfeed-feeds
+   (quote
+    ("http://feeds.feedburner.com/LostGarden" "http://jeff-vogel.blogspot.com/feeds/posts/default" "http://www.shamusyoung.com/twentysidedtale/?feed=rss2")))
  '(mode-line-in-non-selected-windows t)
  '(org-agenda-sorting-strategy
    (quote
@@ -75,29 +78,29 @@
      (search category-keep))))
  '(package-selected-packages
    (quote
-    (powerline json-reformat json-snatcher flycheck-rust rust-mode doom-themes smart-mode-line-powerline-theme smart-mode-line pomidor simpleclip eww-lnum google-this request speed-type haxe-mode swiper hackernews alert async deferred git-commit markdown-mode company request-deferred drag-stuff expand-region flycheck-cask free-keys goto-chg idle-highlight-mode multiple-cursors eshell-up ivy-hydra counsel-projectile counsel ivy coin-ticker ido-vertical-mode flycheck-package keyfreq golden-ratio gotham-theme dired-du org s undo-tree websocket yaml-mode hydra list-unicode-display diminish magit-popup nyan-mode imgur twittering-mode elmacro csv-mode all-the-icons flycheck package-build restart-emacs smartparens web-mode o-blog org-page sudoku open-junk-file json-mode which-key ag with-editor yasnippet pallet php-mode f 2048-game ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode xml-rpc haxe-imports evil-smartparens org-journal monky magit evil better-defaults ##)))
+    (elfeed powerline json-reformat json-snatcher flycheck-rust rust-mode doom-themes smart-mode-line-powerline-theme smart-mode-line pomidor simpleclip eww-lnum google-this request speed-type haxe-mode swiper hackernews alert async deferred git-commit markdown-mode company request-deferred drag-stuff expand-region flycheck-cask free-keys goto-chg idle-highlight-mode multiple-cursors eshell-up ivy-hydra counsel-projectile counsel ivy coin-ticker ido-vertical-mode flycheck-package keyfreq golden-ratio gotham-theme dired-du org s undo-tree websocket yaml-mode hydra list-unicode-display diminish magit-popup nyan-mode imgur twittering-mode elmacro csv-mode all-the-icons flycheck package-build restart-emacs smartparens web-mode o-blog org-page sudoku open-junk-file json-mode which-key ag with-editor yasnippet pallet php-mode f 2048-game ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode xml-rpc haxe-imports evil-smartparens org-journal monky magit evil better-defaults ##)))
  '(send-mail-function nil)
- '(vc-annotate-background "#181e26")
+ '(vc-annotate-background "#1B2229")
  '(vc-annotate-color-map
-   (quote
-    ((20 . "#98be65")
-     (40 . "#b4be6c")
-     (60 . "#d0be73")
-     (80 . "#ECBE7B")
-     (100 . "#e6ab6a")
-     (120 . "#e09859")
-     (140 . "#da8548")
-     (160 . "#d38079")
-     (180 . "#cc7cab")
-     (200 . "#c678dd")
-     (220 . "#d974b7")
-     (240 . "#ec7091")
-     (260 . "#ff6c6b")
-     (280 . "#d6696a")
-     (300 . "#ad6769")
-     (320 . "#836468")
-     (340 . "#5B6268")
-     (360 . "#5B6268"))))
+   (list
+    (cons 20 "#98be65")
+    (cons 40 "#b4be6c")
+    (cons 60 "#d0be73")
+    (cons 80 "#ECBE7B")
+    (cons 100 "#e6ab6a")
+    (cons 120 "#e09859")
+    (cons 140 "#da8548")
+    (cons 160 "#d38079")
+    (cons 180 "#cc7cab")
+    (cons 200 "#c678dd")
+    (cons 220 "#d974b7")
+    (cons 240 "#ec7091")
+    (cons 260 "#ff6c6b")
+    (cons 280 "#cf6162")
+    (cons 300 "#9f585a")
+    (cons 320 "#6f4e52")
+    (cons 340 "#5B6268")
+    (cons 360 "#5B6268")))
  '(vc-annotate-very-old-color nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -126,20 +129,8 @@
  '(tomatinho-time-face ((t (:height 2.5 :width semi-condensed :family "DejaVu Sans")))))
 
 (setq inhibit-startup-screen t)
-(switch-to-buffer "*splash*")
 
-(calendar)
-(split-window-horizontally)
-(other-window 1)
-(org-agenda-list)
-(other-window 1)
-(switch-to-buffer "*hackernews top stories*")
-(hackernews)
-(split-window-horizontally)
-(other-window 1)
-(speed-type-text)
+(arebel-show-splash-screen)
 
 (if (string= (system-name) "Karbuntu")
     (set-face-attribute 'default nil :height 120))
-
-

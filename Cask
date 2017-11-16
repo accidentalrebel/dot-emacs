@@ -25,6 +25,7 @@
 (depends-on "dokuwiki")
 (depends-on "doom-themes")
 (depends-on "drag-stuff")
+(depends-on "elfeed")
 (depends-on "elmacro")
 (depends-on "emojify")
 (depends-on "epl")

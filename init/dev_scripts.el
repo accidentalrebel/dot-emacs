@@ -206,4 +206,17 @@ Pressing F6 runs ert-runner."
     (interactive)
     (find-file (concat "/ssh:" user--chefwars-vm-host ":/cygdrive/d/development/projects/mindcake/chefwars_2dkit/"))
     (pop-to-buffer "*test*")
-    (eshell)))
+    (eshell))
+
+  (defun chefwars-build-debug ()
+    (interactive)
+    (let ((default-directory (projectile-project-root)))
+      (compile "'/cygdrive/c/Program Files \(x86\)/2DKit/bin/2dk.bat' build flash --debug")))
+
+  (defun chefwars-build-release ()
+    (interactive)
+    (let ((default-directory (projectile-project-root)))
+      (compile "'/cygdrive/c/Program Files \(x86\)/2DKit/bin/2dk.bat' build flash")))
+
+  (global-set-key (kbd "<f5>") 'chefwars-build-debug)
+  (global-set-key (kbd "<f6>") 'chefwars-build-release))
