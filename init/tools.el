@@ -379,4 +379,8 @@
   (add-hook 'racer-mode-hook #'company-mode)
   )
 
+(use-package exec-path-from-shell
+  :init
+  (exec-path-from-shell-initialize))
+
 ;;; tools.el ends here
