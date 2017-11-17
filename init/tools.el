@@ -179,12 +179,12 @@
   (global-set-key (kbd "C-w") 'hydra-window/body)
   )
 
-(use-package twittering-mode
-  :config
-  (setq twittering-use-master-password t)
-  (setq twittering-icon-mode t)
-  (setq twittering-use-icon-storage t)
-  )
+;; (use-package twittering-mode
+;;   :config
+;;   (setq twittering-use-master-password t)
+;;   (setq twittering-icon-mode t)
+;;   (setq twittering-use-icon-storage t)
+;;   )
 
 (use-package rainbow-delimiters
    :init
@@ -234,8 +234,9 @@
 (use-package flycheck
   ;;:diminish (flycheck-mode . "")
   :init
-  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
   :config
+  (setq flycheck-emacs-lisp-load-path 'inherit)
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
   (add-hook 'emacs-lisp-mode-hook 'flycheck-mode)
   (add-hook 'rust-mode-hook 'flycheck-mode))
 
@@ -368,5 +369,14 @@
     (simpleclip-mode)))
 
 (use-package pomidor)
+
+(use-package racer
+  :config
+  (setq racer-cmd (expand-file-name "~/.cargo/bin/racer"))
+  (setq racer-rust-src-path (expand-file-name "~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"))
+  (add-hook 'rust-mode-hook #'racer-mode)
+  (add-hook 'racer-mode-hook #'eldoc-mode)
+  (add-hook 'racer-mode-hook #'company-mode)
+  )
 
 ;;; tools.el ends here

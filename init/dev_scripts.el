@@ -1,8 +1,8 @@
 
-(defun arebel-haxe-build-hxml (
+(defun arebel-haxe-build-hxml ()
   (interactive)
   (shell-command (concat (replace-regexp-in-string "\n$" "" (shell-command-to-string "hg root")) "\\build.bat"))
-  (start-process "cmd" nil "cmd.exe" "/C" "start" "cmd.exe" "/k" "build.bat")))
+  (start-process "cmd" nil "cmd.exe" "/C" "start" "cmd.exe" "/k" "build.bat"))
 
 (defun arebel-haxe-run-hxml ()
   (interactive)
@@ -218,5 +218,17 @@ Pressing F6 runs ert-runner."
     (let ((default-directory (projectile-project-root)))
       (compile "'/cygdrive/c/Program Files \(x86\)/2DKit/bin/2dk.bat' build flash")))
 
+  (defun chefwars-build-debug-android ()
+    (interactive)
+    (let ((default-directory (projectile-project-root)))
+      (compile "'/cygdrive/c/Program Files \(x86\)/2DKit/bin/2dk.bat' build android --debug")))
+
+  (defun chefwars-build-release-android ()
+    (interactive)
+    (let ((default-directory (projectile-project-root)))
+      (compile "'/cygdrive/c/Program Files \(x86\)/2DKit/bin/2dk.bat' build android")))
+
   (global-set-key (kbd "<f5>") 'chefwars-build-debug)
-  (global-set-key (kbd "<f6>") 'chefwars-build-release))
+  (global-set-key (kbd "<f6>") 'chefwars-build-release)
+  (global-set-key (kbd "<f7>") 'chefwars-build-debug-android)
+  (global-set-key (kbd "<f8>") 'chefwars-build-release-android))
