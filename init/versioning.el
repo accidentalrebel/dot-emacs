@@ -1,6 +1,6 @@
 (use-package magit
   :init
-  (if (equal system-type 'gnu/linux)
+  (if (or (equal system-type 'gnu/linux) (equal system-type 'darwin))
       (progn
 	(setq exec-path (append exec-path '("/usr/bin/")))
 	(setq magit-git-executable (expand-file-name "/usr/bin/git")) 

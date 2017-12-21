@@ -3,9 +3,11 @@
 (setq backup-directory-alist `((".*" . ,temporary-file-directory))
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
-(setq shr-external-browser '(lambda(url &rest ARGS)
-			      (start-process "cmd" nil "cmd.exe" "/C" "start" url)
-			      ))
+(when (not (eq system-type 'darwin))
+  (setq shr-external-browser
+	'(lambda(url &rest ARGS)
+	   (start-process "cmd" nil "cmd.exe" "/C" "start" url)
+	   )))
 
 (setq browse-url-browser-function
       '(("http://msi:8080" . (lambda (url &optional ARGS)
@@ -35,11 +37,6 @@
 					  (concat user--win-arebel-home-folder "Dropbox/")) "orgmode/blog/themes"))
   (setq op/theme 'arebel)
   )
-
-(use-package dokuwiki
-  :config
-  (setq dokuwiki-xml-rpc-url user--gamedevph-xmlrpc-url
-	dokuwiki-login-user-name user--gamedevph-username))
 
 (use-package slack
   :commands (slack-start)
@@ -98,3 +95,7 @@
 ;; (add-hook 'compilation-filter-hook 'arebel-ansi-colorize-buffer)
 
 (setq shell-command-switch "-ic")
+
+(when (eq system-type 'darwin)
+  (setq mac-command-modifier 'control)
+  (setq mac-control-modifier 'super))
