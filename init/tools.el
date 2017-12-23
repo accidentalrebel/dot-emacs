@@ -258,7 +258,7 @@
   :diminish (abbrev-mode . ""))
 
 (use-package ace-window
-  :bind (("C-&" . ace-window)))
+  :bind (("C-;" . ace-window)))
 
 (use-package open-junk-fil
   :bind (("C-c j" . open-junk-file)))
@@ -328,5 +328,30 @@
 (use-package exec-path-from-shell
   :init
   (exec-path-from-shell-initialize))
+
+(use-package keyfreq
+  :config
+  (setq keyfreq-excluded-commands
+	'(self-insert-command
+	  abort-recursive-edit
+	  forward-char
+	  backward-char
+	  previous-line
+	  next-line
+	  org-agenda-next-line
+	  org-agenda-previous-line
+	  org-self-insert-command
+	  org-delete-backward-char
+	  undo-tree-undo
+	  undo-tree-redo
+	  mwheel-scroll
+	  mouse-set-point
+	  mouse-drag-region
+	  sp-backward-delete-char
+	  delete-backward-char
+	  helm-previous-line
+	  helm-next-line))
+  (keyfreq-mode 1)
+  (keyfreq-autosave-mode 1))
 
 ;;; tools.el ends here

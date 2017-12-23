@@ -6,6 +6,7 @@
 (depends-on "avy")
 (depends-on "diminish")
 (depends-on "eww-lnum")
+(depends-on "keyfreq")
 (depends-on "magit")
 (depends-on "ripgrep")
 (depends-on "smex")
