@@ -1,4 +1,7 @@
 (use-package magit)
+(use-package diminish)
+(use-package avy)
+(use-package swiper)
 
 (use-package ivy
   :diminish (ivy-mode . "")
@@ -40,7 +43,7 @@
   (setq projectile-completion-system 'ivy)
   (setq projectile-enable-caching t)
   (setq projectile-indexing-method 'alien)
-  :bind (("C-c p s" . counsel-projectile-ag)
+  :bind (("C-c p h" . counsel-projectile-rg)
 	 ("C-c p p" . counsel-projectile-switch-project)
 	 ("C-x f" . counsel-projectile-find-file)))
 
@@ -85,6 +88,7 @@
     ("x" counsel-yank-pop "kill-ring" :color blue)
 
     ;; RIGHT HAND SIDE
+    ("!" counsel-projectile-rg "ripgrep")
     ("-" end-of-buffer "eob")
     ("/" beginning-of-buffer "bob")
     ("m" scroll-down-command "scroll-up")
@@ -249,12 +253,6 @@
   (setq alert-log-messages t)
   (setq alert-default-style 'message)
   (setq alert-user-configuration '((((:severity high)) toaster nil))))
-
-(use-package avy
-  :bind ( :map arebel-custom-key-map
-	       ("C-<" . avy-goto-char-2)
-	       ("C-," . avy-goto-word-1)
-	       ("C-;" . avy-goto-line)))
 
 (use-package abbrev
   :diminish (abbrev-mode . ""))

@@ -91,6 +91,7 @@
 	 
   (setq org-journal-file-format "%Y%m%d.org")
   (setq org-journal-enable-encryption t)
+  (setq epa-pinentry-mode 'loopback)
   (add-hook 'org-journal-mode-hook (lambda()
 				     ;;(flyspell-mode 1)
 				     (auto-save-mode)

@@ -39,7 +39,7 @@
   (setq projectile-completion-system 'ivy)
   (setq projectile-enable-caching t)
   (setq projectile-indexing-method 'alien)
-  :bind (("C-c p s" . counsel-projectile-ag)
+  :bind (("C-c p g" . counsel-projectile-ag)
 	 ("C-c p p" . counsel-projectile-switch-project)
 	 ("C-x f" . counsel-projectile-find-file)
 	 )

@@ -2,4 +2,11 @@
 (source "melpa" "http://melpa.milkbox.net/packages/")
 (source melpa-stable)
 
+(depends-on "ace-window")
+(depends-on "avy")
+(depends-on "diminish")
+(depends-on "eww-lnum")
 (depends-on "magit")
+(depends-on "ripgrep")
+(depends-on "smex")
+(depends-on "swiper")
