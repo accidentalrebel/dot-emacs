@@ -3,9 +3,12 @@
 (source melpa-stable)
 
 (depends-on "ace-window")
+(depends-on "async")
 (depends-on "avy")
+(depends-on "csharp-mode")
 (depends-on "diminish")
 (depends-on "eww-lnum")
+(depends-on "ivy")
 (depends-on "keyfreq")
 (depends-on "magit")
 (depends-on "ripgrep")

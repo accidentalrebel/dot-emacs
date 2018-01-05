@@ -90,7 +90,7 @@
 	  (expand-file-name  (concat user--win-arebel-home-folder "Dropbox/orgmode/journal")))))
 	 
   (setq org-journal-file-format "%Y%m%d.org")
-  (setq org-journal-enable-encryption t)
+  (setq org-journal-enable-encryption nil)
   (setq epa-pinentry-mode 'loopback)
   (add-hook 'org-journal-mode-hook (lambda()
 				     ;;(flyspell-mode 1)

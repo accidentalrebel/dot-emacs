@@ -2,6 +2,9 @@
 (use-package diminish)
 (use-package avy)
 (use-package swiper)
+(use-package ido-vertical-mode
+  :config
+  (ido-vertical-mode))
 
 (use-package ivy
   :diminish (ivy-mode . "")

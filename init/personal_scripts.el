@@ -39,7 +39,7 @@ Closes all buffers and opens Hackernews, Elfeed, Calendar, Org-Agenda, and Speed
 (defun arebel-quick-notes-to-journal-entry ()
   (interactive)
   "Converts notes made through Ogzly to Org-Journal entries."
-  (let ((path (concat user--linux-karbuntu-arebel-home-folder "Dropbox/orgmode/notes/a_quick_notes.org"))
+  (let ((path (concat user--mac-arebel-home-folder "Dropbox/orgmode/notes/a_quick_notes.org"))
 	(current-buffer-name "a_quick_notes.org"))
     (org-map-entries '(lambda ()
 			(let ((scheduled-time (org-get-scheduled-time (point)))
