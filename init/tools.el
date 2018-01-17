@@ -6,6 +6,16 @@
   :config
   (ido-vertical-mode))
 
+(use-package exec-path-from-shell
+  :init
+  (exec-path-from-shell-initialize))
+
+(use-package pomidor)
+
+(use-package omnisharp
+  :no-require t
+  :hook ( csharp-mode-hook . omnisharp-mode))
+
 (use-package ivy
   :diminish (ivy-mode . "")
   :init
@@ -41,7 +51,7 @@
   (setq projectile-mode-line
 	'(:eval (format " Projectile[%s]"
                         (projectile-project-name))))
-  (projectile-mode)
+  (counsel-projectile-mode)
   :config
   (setq projectile-completion-system 'ivy)
   (setq projectile-enable-caching t)
@@ -302,6 +312,8 @@
   (setq company-idle-delay 0.3)
   (setq company-minimum-prefx-length 3)
   (add-hook 'after-init-hook 'global-company-mode)
+  :config
+  (add-to-list 'company-backends 'company-omnisharp)
   )
 
 (use-package eshell-up)
@@ -310,6 +322,7 @@
 (use-package eww
   :init
   (setq shr-color-visible-luminance-min 70)
+  (setq shr-use-fonts nil)
   :bind ( :map eww-mode-map
 	       ("f" . eww-lnum-follow)
 	       ("F" . eww-lnum-universal)))

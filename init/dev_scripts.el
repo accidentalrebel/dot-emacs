@@ -62,7 +62,7 @@
   (if (eq 'haxe-mode major-mode)
       (let ((project-root (projectile-project-root)))
 	(message "Creating the offline package...")
-	(async-start
+	(a!sync-start
 	 `(lambda ()
 	    ,(async-inject-variables "\\`project-root\\'")
 	    (delete-directory (concat project-root "build/offline") t)
@@ -211,22 +211,30 @@ Pressing F6 runs ert-runner."
   (defun chefwars-build-debug ()
     (interactive)
     (let ((default-directory (projectile-project-root)))
-      (compile "'/cygdrive/c/Program Files \(x86\)/2DKit/bin/2dk.bat' build flash --debug")))
+      (if (eq system-type 'darwin )
+	  (compile "/Applications/2DKit/bin/2dk build flash --debug")
+	(compile "'/cygdrive/c/Program Files \(x86\)/2DKit/bin/2dk.bat' build flash --debug"))))
 
   (defun chefwars-build-release ()
     (interactive)
     (let ((default-directory (projectile-project-root)))
-      (compile "'/cygdrive/c/Program Files \(x86\)/2DKit/bin/2dk.bat' build flash")))
+      (if (eq system-type 'darwin)
+	  (compile "/Applications/2DKit/bin/2dk build flash")
+	(compile "'/cygdrive/c/Program Files \(x86\)/2DKit/bin/2dk.bat' build flash"))))
 
   (defun chefwars-build-debug-android ()
     (interactive)
     (let ((default-directory (projectile-project-root)))
-      (compile "'/cygdrive/c/Program Files \(x86\)/2DKit/bin/2dk.bat' build android --debug")))
+      (if (eq system-type 'darwin )
+	  (compile "/Applications/2DKit/bin/2dk android --debug")
+	(compile "'/cygdrive/c/Program Files \(x86\)/2DKit/bin/2dk.bat' build android --debug"))))
 
   (defun chefwars-build-release-android ()
     (interactive)
     (let ((default-directory (projectile-project-root)))
-      (compile "'/cygdrive/c/Program Files \(x86\)/2DKit/bin/2dk.bat' build android")))
+      (if (eq system-type 'darwin )
+	  (compile "/Applications/2DKit/bin/2dk build android")
+	(compile "'/cygdrive/c/Program Files \(x86\)/2DKit/bin/2dk.bat' build android"))))
 
   (global-set-key (kbd "<f5>") 'chefwars-build-debug)
   (global-set-key (kbd "<f6>") 'chefwars-build-release)
