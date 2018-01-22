@@ -1,7 +1,16 @@
+(use-package cargo)
+(use-package yaml-mode)
 (use-package magit)
 (use-package diminish)
 (use-package avy)
 (use-package swiper)
+(use-package markdown-mode)
+
+(use-package rust-mode
+  :init
+  (setq rust-format-on-save t)
+  )
+
 (use-package ido-vertical-mode
   :config
   (ido-vertical-mode))
@@ -13,8 +22,8 @@
 (use-package pomidor)
 
 (use-package omnisharp
-  :no-require t
-  :hook ( csharp-mode-hook . omnisharp-mode))
+  :config
+  (add-hook 'csharp-mode-hook 'omnisharp-mode))
 
 (use-package ivy
   :diminish (ivy-mode . "")
@@ -47,7 +56,7 @@
 (use-package counsel-projectile
   :diminish (projectile-mode . "")
   :init
- ;; NOTE: Temp workaround for slowdown
+  ;; NOTE: Temp workaround for slowdown
   (setq projectile-mode-line
 	'(:eval (format " Projectile[%s]"
                         (projectile-project-name))))
@@ -253,7 +262,8 @@
   (setq flycheck-emacs-lisp-load-path 'inherit)
   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
   (add-hook 'emacs-lisp-mode-hook 'flycheck-mode)
-  (add-hook 'rust-mode-hook 'flycheck-mode))
+  (add-hook 'rust-mode-hook 'flycheck-mode)
+  (add-hook 'csharp-mode-hook 'flycheck-mode))
 
 (use-package flycheck-package
   :config
@@ -273,7 +283,7 @@
 (use-package ace-window
   :bind (("C-;" . ace-window)))
 
-(use-package open-junk-fil
+(use-package open-junk-file
   :bind (("C-c j" . open-junk-file)))
 
 (use-package restart-emacs)
@@ -335,7 +345,7 @@
 (use-package racer
   :config
   (setq racer-cmd (expand-file-name "~/.cargo/bin/racer"))
-  (setq racer-rust-src-path (expand-file-name "~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"))
+  (setq racer-rust-src-path (expand-file-name "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"))
   (add-hook 'rust-mode-hook #'racer-mode)
   (add-hook 'racer-mode-hook #'eldoc-mode)
   (add-hook 'racer-mode-hook #'company-mode)
