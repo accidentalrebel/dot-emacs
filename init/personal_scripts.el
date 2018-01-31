@@ -112,7 +112,7 @@ Closes all buffers and opens Hackernews, Elfeed, Calendar, Org-Agenda, and Speed
 
 (defun arebel-blog-commit ()
   (interactive)
-  (let* ((blog-path (concat user--linux-arebel-home-folder "Dropbox/orgmode/blog"))
+  (let* ((blog-path (concat user--mac-arebel-home-folder "Dropbox/orgmode/blog"))
 	 (default-directory blog-path))
     (magit-git-command (concat "git checkout source"))
     (magit-git-command (concat "git -C " blog-path " add -A"))
@@ -120,7 +120,7 @@ Closes all buffers and opens Hackernews, Elfeed, Calendar, Org-Agenda, and Speed
 
 (defun arebel-blog-amend ()
   (interactive)
-  (let* ((blog-path (concat user--linux-arebel-home-folder "Dropbox/orgmode/blog"))
+  (let* ((blog-path (concat user--mac-arebel-home-folder "Dropbox/orgmode/blog"))
 	 (default-directory blog-path))
     (magit-git-command (concat "git checkout source"))
     (magit-git-command (concat "git -C " blog-path " add -A"))
@@ -128,7 +128,7 @@ Closes all buffers and opens Hackernews, Elfeed, Calendar, Org-Agenda, and Speed
 
 (defun arebel-blog-publish ()
   (interactive)
-  (let* ((blog-path (concat user--linux-arebel-home-folder "Dropbox/orgmode/blog"))
+  (let* ((blog-path (concat user--mac-arebel-home-folder "Dropbox/orgmode/blog"))
 	(default-directory blog-path))
     (op/do-publication t nil nil t t)
     (magit-git-command (concat "git -C " blog-path " push"))))

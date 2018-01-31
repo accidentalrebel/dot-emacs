@@ -10,6 +10,7 @@
 (depends-on "csharp-mode")
 (depends-on "dash")
 (depends-on "diminish")
+(depends-on "epl")
 (depends-on "eww-lnum")
 (depends-on "f")
 (depends-on "flycheck")
@@ -28,3 +29,5 @@
 (depends-on "swiper")
 (depends-on "with-editor")
 (depends-on "yaml-mode")
+(depends-on "yasnippet")
+(depends-on "yasnippet-snippets")

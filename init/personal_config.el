@@ -23,7 +23,7 @@
 						(concat user--linux-karbuntu-arebel-home-folder "Dropbox/")
 					      (concat user--linux-msi-arebel-home-folder "Dropbox/"))))
 					 ((eq system-type 'darwin)
-					  (concat user--mac-arebel-home-folder "Dropbox/"))
+					  (concat user--mac-arebel-home-folder "~/Dropbox/"))
 					 (t
 					  (concat user--win-arebel-home-folder "Dropbox/"))) "orgmode/blog"))
   (setq op/site-domain "https://accidentalrebel.github.io/")
@@ -40,7 +40,7 @@
 						(concat user--linux-karbuntu-arebel-home-folder "Dropbox/")
 					      (concat user--linux-msi-arebel-home-folder "Dropbox/"))))
 					 ((eq system-type 'darwin)
-					  (concat user--mac-arebel-home-folder "Dropbox/"))
+					  (concat user--mac-arebel-home-folder "~/Dropbox/"))
 					 (t
 					  (concat user--win-arebel-home-folder "Dropbox/"))) "orgmode/blog/themes"))
   (setq op/theme 'arebel)

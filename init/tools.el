@@ -23,7 +23,10 @@
 
 (use-package omnisharp
   :config
-  (add-hook 'csharp-mode-hook 'omnisharp-mode))
+  (add-hook 'csharp-mode-hook 'omnisharp-mode)
+  (add-hook 'before-save-hook (lambda()
+				(when (eq 'csharp-mode major-mode)
+				  (omnisharp-code-format-entire-file)))))
 
 (use-package ivy
   :diminish (ivy-mode . "")
