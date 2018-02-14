@@ -19,7 +19,7 @@ Closes all buffers and opens Hackernews, Elfeed, Calendar, Org-Agenda, and Speed
   (hackernews 10)
   (split-window-horizontally)
   (other-window 1)
-  (elfeed)
+  ;(elfeed)
   (goto-char (point-min))
   (other-window 3)
   (speed-type-text))

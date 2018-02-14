@@ -1,3 +1,10 @@
+(when (file-exists-p "~/development/projects/elisp/cobalt/cobalt.el")
+  (load "~/development/projects/elisp/cobalt/cobalt.el"))
+
+(use-package cobalt
+  :init
+  (setq cobalt-site-paths '("~/blogs/testblog" "~/blogs/cobalt-org.github.io/" "~/blogs/accidentalrebel.github.com/")))
+
 (use-package cargo)
 (use-package yaml-mode)
 (use-package magit)
@@ -23,10 +30,12 @@
 
 (use-package omnisharp
   :config
-  (add-hook 'csharp-mode-hook 'omnisharp-mode)
-  (add-hook 'before-save-hook (lambda()
-				(when (eq 'csharp-mode major-mode)
-				  (omnisharp-code-format-entire-file)))))
+  (add-hook 'csharp-mode-hook 'omnisharp-mode))
+
+(use-package csharp-mode
+  :config
+  (add-hook 'csharp-mode-hook (lambda()
+				(setq truncate-lines t))))
 
 (use-package ivy
   :diminish (ivy-mode . "")
@@ -55,6 +64,8 @@
   )
 
 (use-package counsel)
+
+(use-package projectile-ripgrep)
 
 (use-package counsel-projectile
   :diminish (projectile-mode . "")
@@ -113,7 +124,7 @@
     ("x" counsel-yank-pop "kill-ring" :color blue)
 
     ;; RIGHT HAND SIDE
-    ("!" counsel-projectile-rg "ripgrep")
+    ("!" projectile-ripgrep "ripgrep")
     ("-" end-of-buffer "eob")
     ("/" beginning-of-buffer "bob")
     ("m" scroll-down-command "scroll-up")

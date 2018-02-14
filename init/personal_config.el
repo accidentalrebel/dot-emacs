@@ -12,6 +12,7 @@
 (setq browse-url-browser-function
       '(("http://msi:8080" . (lambda (url &optional ARGS)
 			       (funcall shr-external-browser url ARGS)))
+	("http://127.0.0.1:3000" . browse-url-default-browser)
 	("." . eww-browse-url )))
 
 (use-package org-page
