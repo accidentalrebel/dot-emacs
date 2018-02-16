@@ -5,6 +5,9 @@
   :init
   (setq cobalt-site-paths '("~/blogs/testblog" "~/blogs/cobalt-org.github.io/" "~/blogs/accidentalrebel.github.com/")))
 
+(use-package ace-window)
+(use-package smex)
+(use-package speed-type)
 (use-package cargo)
 (use-package yaml-mode)
 (use-package magit)
@@ -83,8 +86,6 @@
 	 ("C-c p p" . counsel-projectile-switch-project)
 	 ("C-x f" . counsel-projectile-find-file)))
 
-(use-package ag)
-
 (use-package hydra
   :config
   (defvar hydra-stack nil)
@@ -106,33 +107,33 @@
     "MAIN"
 
     ;; LEFT HAND SIDE
-    ("a" set-mark-command "mark")
-    ("'" comment-dwim "comment")
-    ("u" (delete-char 1) "kill-char-forward")
-    ("o" (delete-char -1) "kill-char-backward")
-    ("p" (kill-word 1) "kill-word-forward")
-    ("," (kill-word -1) "kill-word-backward")
-    ("e" kill-whole-line "kill-whole-line")
-    ("." kill-line "kill-line")
+    ("a" set-mark-command)
+    ("'" comment-dwim)
+    ("u" (delete-char 1))
+    ("o" (delete-char -1))
+    ("p" (kill-word 1))
+    ("," (kill-word -1))
+    ("e" kill-whole-line)
+    ("." kill-line)
     
-    ("q" kill-ring-save "copy")
-    ("j" kill-region "cut")
-    ("k" yank "yank")
+    ("q" kill-ring-save)
+    ("j" kill-region)
+    ("k" yank)
 
-    ("i" undo "undo")
-    ("y" undo-tree-visualize "undo-tree" :color blue)
-    ("x" counsel-yank-pop "kill-ring" :color blue)
+    ("i" undo)
+    ("y" undo-tree-visualize :color blue)
+    ("x" counsel-yank-pop :color blue)
 
     ;; RIGHT HAND SIDE
-    ("!" projectile-ripgrep "ripgrep")
-    ("-" end-of-buffer "eob")
-    ("/" beginning-of-buffer "bob")
-    ("m" scroll-down-command "scroll-up")
-    ("v" scroll-up-command "scroll-down")
+    ("!" projectile-ripgrep)
+    ("-" end-of-buffer)
+    ("/" beginning-of-buffer)
+    ("m" scroll-down-command)
+    ("v" scroll-up-command)
 
-    ("f" avy-goto-line "avy-line")
-    ("=" avy-goto-char-2 "avy-char")
-    ("b" avy-goto-word-1 "avy-word")
+    ("f" avy-goto-line)
+    ("=" avy-goto-char-2)
+    ("b" avy-goto-word-1)
 
     ("c" previous-line)
     ("t" next-line)

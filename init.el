@@ -26,7 +26,6 @@
 (when (file-exists-p "~/.emacs.d/user.el")
   (load "~/.emacs.d/user.el"))
 
-(load "~/.emacs.d/init/theme")
 (load "~/.emacs.d/init/haxe_mode")
 (load "~/.emacs.d/init/versioning")
 (load "~/.emacs.d/init/tools")
@@ -68,15 +67,17 @@
  '(asana-selected-workspace nil t)
  '(csv-field-index-mode t)
  '(csv-separators (quote ("," ";")))
+ '(custom-enabled-themes (quote (wombat)))
  '(custom-safe-themes
    (quote
     ("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "9f3181dc1fabe5d58bbbda8c48ef7ece59b01bed606cfb868dd147e8b36af97c" "cdf96318f1671344564ba74ef75cc2a3f4692b2bee77de9ce9ff5f165de60b1f" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
  '(doom-one-brighter-comments t)
  '(doom-one-brighter-modeline nil)
  '(doom-one-comment-bg t)
- '(elfeed-feeds
-   (quote
-    ("http://feeds.feedburner.com/rgsunico" "http://feeds.feedburner.com/LostGarden" "http://jeff-vogel.blogspot.com/feeds/posts/default" "http://www.shamusyoung.com/twentysidedtale/?feed=rss2")))
+ '(fci-rule-color "#555556")
+ '(jdee-db-active-breakpoint-face-colors (cons "#000000" "#fd971f"))
+ '(jdee-db-requested-breakpoint-face-colors (cons "#000000" "#b6e63e"))
+ '(jdee-db-spec-breakpoint-face-colors (cons "#000000" "#525254"))
  '(magit-submodule-arguments nil)
  '(mode-line-in-non-selected-windows t)
  '(org-agenda-sorting-strategy
@@ -85,9 +86,12 @@
      (todo priority-down category-keep)
      (tags priority-down category-keep)
      (search category-keep))))
+ '(org-fontify-done-headline t)
+ '(org-fontify-quote-and-verse-blocks t)
+ '(org-fontify-whole-heading-line t)
  '(package-selected-packages
    (quote
-    (projectile-ripgrep omnisharp yasnippet-snippets cargo ghub pocket-reader smex ripgrep cask racer csharp-mode elfeed powerline json-reformat json-snatcher flycheck-rust rust-mode doom-themes smart-mode-line-powerline-theme smart-mode-line pomidor simpleclip eww-lnum google-this request speed-type haxe-mode swiper hackernews alert async deferred git-commit markdown-mode company request-deferred drag-stuff expand-region flycheck-cask free-keys goto-chg idle-highlight-mode multiple-cursors eshell-up ivy-hydra counsel-projectile counsel ivy coin-ticker ido-vertical-mode flycheck-package keyfreq golden-ratio gotham-theme dired-du org s undo-tree websocket yaml-mode hydra list-unicode-display diminish magit-popup nyan-mode imgur twittering-mode elmacro csv-mode all-the-icons flycheck package-build restart-emacs smartparens web-mode o-blog org-page sudoku open-junk-file json-mode which-key ag with-editor yasnippet pallet php-mode f 2048-game ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode haxe-imports evil-smartparens org-journal monky magit evil better-defaults ##)))
+    (projectile-ripgrep omnisharp yasnippet-snippets cargo ghub pocket-reader smex ripgrep cask racer csharp-mode powerline json-reformat json-snatcher flycheck-rust rust-mode doom-themes smart-mode-line-powerline-theme smart-mode-line pomidor simpleclip eww-lnum google-this request speed-type haxe-mode swiper hackernews alert async deferred git-commit markdown-mode company request-deferred drag-stuff expand-region flycheck-cask free-keys goto-chg idle-highlight-mode multiple-cursors eshell-up ivy-hydra counsel-projectile counsel ivy coin-ticker ido-vertical-mode flycheck-package keyfreq golden-ratio gotham-theme dired-du org s undo-tree websocket yaml-mode hydra list-unicode-display diminish magit-popup nyan-mode imgur twittering-mode elmacro csv-mode all-the-icons flycheck package-build restart-emacs smartparens web-mode o-blog org-page sudoku open-junk-file json-mode which-key ag with-editor yasnippet pallet php-mode f 2048-game ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode haxe-imports evil-smartparens org-journal monky magit evil better-defaults ##)))
  '(send-mail-function nil)
  '(vc-annotate-background "#1B2229")
  '(vc-annotate-color-map
