@@ -13,7 +13,6 @@
 (use-package yaml-mode)
 (use-package magit)
 (use-package diminish)
-(use-package avy)
 (use-package swiper)
 (use-package markdown-mode)
 
@@ -295,7 +294,7 @@
   :diminish (abbrev-mode . ""))
 
 (use-package ace-window
-  :bind (("C-;" . ace-window)))
+  :bind (("C-." . ace-window)))
 
 (use-package open-junk-file
   :bind (("C-c j" . open-junk-file)))
