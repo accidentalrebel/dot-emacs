@@ -30,11 +30,11 @@
 	  (expand-file-name (concat user--win-arebel-home-folder "Dropbox/orgmode/uncategorized.org")))))
 
   (setq
-  	org-agenda-files (list (concat org-directory "todos/"))
-  	org-refile-targets '((org-agenda-files . (:maxlevel . 6)))
-  	org-agenda-window-setup 'current-window
-  	org-agenda-start-on-weekday 1
-  	org-log-done 'time)
+   org-agenda-files (list (concat org-directory "todos/"))
+   org-refile-targets '((org-agenda-files . (:maxlevel . 6)))
+   org-agenda-window-setup 'current-window
+   org-agenda-start-on-weekday 1
+   org-log-done 'time)
 
   (setq org-agenda-custom-commands
 	'(("c" . "My Custom Agendas")
@@ -73,7 +73,7 @@
 	 ("C-c a" . org-agenda)
 	 ("C-c c" . org-capture)
 	 :map org-mode-map
-	       ("C-'" . nil))
+	 ("C-'" . nil))
   )
 
 (use-package org-journal
@@ -88,7 +88,7 @@
 	  (expand-file-name (concat user--mac-arebel-home-folder "Dropbox/orgmode/journal")))
 	 (t
 	  (expand-file-name  (concat user--win-arebel-home-folder "Dropbox/orgmode/journal")))))
-	 
+  
   (setq org-journal-file-format "%Y%m%d.org")
   (setq org-journal-enable-encryption nil)
   (setq epa-pinentry-mode 'loopback)

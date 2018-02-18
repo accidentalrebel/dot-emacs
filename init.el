@@ -15,6 +15,7 @@
     (require 'cask "~/.cask/cask.el")
   (require 'cask))
 (cask-initialize)
+
 (require 'pallet)
 (pallet-mode 1)
 
@@ -26,21 +27,15 @@
 (load "~/.emacs.d/init/bootstrap")
 (load "~/.emacs.d/init/tools")
 (load "~/.emacs.d/init/org_mode")
-(load "~/.emacs.d/init/haxe_mode")
-(load "~/.emacs.d/init/dev_scripts")
+;;(load "~/.emacs.d/init/haxe_mode")
+;;(load "~/.emacs.d/init/dev_scripts")
 (load "~/.emacs.d/init/personal_scripts")
 (load "~/.emacs.d/init/personal_config")
 
 (when (file-exists-p "~/.emacs.d/dev/haxe-tools/haxe-tools.el")
   (require 'haxe-tools "~/.emacs.d/dev/haxe-tools/haxe-tools"))
 
-(when (file-exists-p "~/.emacs.d/dev/emacs_asana/emacs_asana.el")
-  (require 'emacs-asana "~/.emacs.d/dev/emacs_asana/emacs_asana.el"))
-
-(when (file-exists-p "~/.emacs.d/dev/tic-tac-toe/tic-tac-toe.el")
-  (add-to-list 'load-path "~/.emacs.d/dev/tic-tac-toe")
-  (require 'tic-tac-toe))
-
+(server-start)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -48,7 +43,10 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-(server-start)
+(setq inhibit-startup-screen t)
+
+(when (fboundp 'arebel-show-splash-screen)
+  (arebel-show-splash-screen))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -87,7 +85,7 @@
  '(org-fontify-whole-heading-line t)
  '(package-selected-packages
    (quote
-    (projectile-ripgrep omnisharp yasnippet-snippets cargo ghub pocket-reader smex ripgrep cask racer csharp-mode powerline json-reformat json-snatcher flycheck-rust rust-mode doom-themes smart-mode-line-powerline-theme smart-mode-line pomidor simpleclip eww-lnum google-this request speed-type haxe-mode swiper hackernews alert async deferred git-commit markdown-mode company request-deferred drag-stuff expand-region flycheck-cask free-keys goto-chg idle-highlight-mode multiple-cursors eshell-up ivy-hydra counsel-projectile counsel ivy coin-ticker ido-vertical-mode flycheck-package keyfreq golden-ratio gotham-theme dired-du org s undo-tree websocket yaml-mode hydra list-unicode-display diminish magit-popup nyan-mode imgur twittering-mode elmacro csv-mode all-the-icons flycheck package-build restart-emacs smartparens web-mode o-blog org-page sudoku open-junk-file json-mode which-key ag with-editor yasnippet pallet php-mode f 2048-game ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode haxe-imports evil-smartparens org-journal monky magit evil better-defaults ##)))
+    (projectile-ripgrep omnisharp yasnippet-snippets cargo ghub pocket-reader smex ripgrep cask racer csharp-mode powerline json-reformat json-snatcher flycheck-rust rust-mode doom-themes smart-mode-line-powerline-theme smart-mode-line simpleclip eww-lnum google-this request speed-type haxe-mode swiper hackernews async deferred git-commit markdown-mode company request-deferred drag-stuff expand-region flycheck-cask free-keys goto-chg idle-highlight-mode multiple-cursors eshell-up ivy-hydra counsel-projectile counsel ivy coin-ticker ido-vertical-mode flycheck-package keyfreq golden-ratio gotham-theme dired-du org s undo-tree websocket yaml-mode hydra list-unicode-display diminish magit-popup nyan-mode imgur twittering-mode elmacro csv-mode all-the-icons flycheck package-build restart-emacs smartparens web-mode o-blog org-page sudoku open-junk-file json-mode which-key ag with-editor yasnippet pallet php-mode f 2048-game ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode haxe-imports evil-smartparens monky magit evil better-defaults ##)))
  '(send-mail-function nil)
  '(vc-annotate-background "#1B2229")
  '(vc-annotate-color-map
@@ -116,7 +114,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#202730" :foreground "#bbc2cf" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 144 :width normal :foundry "PfEd" :family "DejaVu Sans Mono"))))
+ '(default ((t (:inherit nil :stipple nil :background "#202730" :foreground "#bbc2cf" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 155 :width normal :foundry "PfEd" :family "DejaVu Sans Mono"))))
  '(aw-leading-char-face ((t (:background "cyan" :foreground "black" :height 2.0))))
  '(hackernews-link ((t (:inherit link :foreground "light green" :underline nil))))
  '(mode-line ((t (:background "dark slate gray" :foreground "cyan"))))
@@ -136,10 +134,3 @@
  '(tomatinho-current-ok-face ((t (:inherit tomatinho-ok-face :height 2.5))))
  '(tomatinho-current-pause-face ((t (:inherit tomatinho-pause-face :height 2.5))))
  '(tomatinho-time-face ((t (:height 2.5 :width semi-condensed :family "DejaVu Sans")))))
-
-(setq inhibit-startup-screen t)
-
-(set-face-attribute 'default nil :height 155)
-
-(when (fboundp 'arebel-show-splash-screen)
-  (arebel-show-splash-screen))
