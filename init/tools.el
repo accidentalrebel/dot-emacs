@@ -5,6 +5,7 @@
   :init
   (setq cobalt-site-paths '("~/blogs/testblog" "~/blogs/cobalt-org.github.io/" "~/blogs/accidentalrebel.github.com/")))
 
+(use-package flycheck-rust)
 (use-package ace-window)
 (use-package smex)
 (use-package speed-type)
@@ -18,8 +19,7 @@
 
 (use-package rust-mode
   :init
-  (setq rust-format-on-save t)
-  )
+  (setq rust-format-on-save t))
 
 (use-package ido-vertical-mode
   :config
@@ -62,9 +62,7 @@
 	 ("C-x r" . counsel-recentf)
 	 ("C-x C-r" . ivy-resume)
 	 ("C-c f" . counsel-find-file)
-	 ("C-x c p" . counsel-list-processes)
-	 )
-  )
+	 ("C-x c p" . counsel-list-processes)))
 
 (use-package counsel)
 
@@ -89,6 +87,7 @@
 (use-package hydra
   :config
   (defvar hydra-stack nil)
+  (setq hydra-is-helpful nil)
   
   (defun hydra-push (expr)
     (push `(lambda () ,expr) hydra-stack))
@@ -235,7 +234,7 @@
   :config
   (yas-global-mode t)
   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
-  :bind ( :map yas-minor-mode-map	
+  :bind ( :map yas-minor-mode-map
 	      ("<tab>" . nil)
 	      ("TAB" . nil)
 	      ("<backtab>" . yas-expand)
@@ -334,8 +333,7 @@
   :diminish (company-mode . "")
   :init
   (setq company-dabbrev-downcase nil)  
-  (setq company-idle-delay 0.3)
-  (setq company-minimum-prefx-length 3)
+  (setq company-idle-delay 0.5)
   (add-hook 'after-init-hook 'global-company-mode)
   :config
   (add-to-list 'company-backends 'company-omnisharp)
