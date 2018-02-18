@@ -325,8 +325,7 @@
       (clipboard/set fpath)
       (message "Copied path: " fpath)))
 
-  :bind (("C-c e s" . eshell)
-	 ("C-c e p" . eshell/copy-pwd))
+  :bind (("C-c e p" . eshell/copy-pwd))
   )
 
 (use-package company
@@ -368,29 +367,49 @@
   :init
   (exec-path-from-shell-initialize))
 
-(use-package keyfreq
-  :config
-  (setq keyfreq-excluded-commands
-	'(self-insert-command
-	  abort-recursive-edit
-	  forward-char
-	  backward-char
-	  previous-line
-	  next-line
-	  org-agenda-next-line
-	  org-agenda-previous-line
-	  org-self-insert-command
-	  org-delete-backward-char
-	  undo-tree-undo
-	  undo-tree-redo
-	  mwheel-scroll
-	  mouse-set-point
-	  mouse-drag-region
-	  sp-backward-delete-char
-	  delete-backward-char
-	  helm-previous-line
-	  helm-next-line))
-  (keyfreq-mode 1)
-  (keyfreq-autosave-mode 1))
+;; (use-package keyfreq
+;;   :config
+;;   (setq keyfreq-excluded-commands
+;; 	'(self-insert-command
+;; 	  abort-recursive-edit
+;; 	  forward-char
+;; 	  backward-char
+;; 	  previous-line
+;; 	  next-line
+;; 	  org-agenda-next-line
+;; 	  org-agenda-previous-line
+;; 	  org-self-insert-command
+;; 	  org-delete-backward-char
+;; 	  undo-tree-undo
+;; 	  undo-tree-redo
+;; 	  mwheel-scroll
+;; 	  mouse-set-point
+;; 	  mouse-drag-region
+;; 	  sp-backward-delete-char
+;; 	  delete-backward-char
+;; 	  helm-previous-line
+;; 	  helm-next-line))
+;;   (keyfreq-mode 1)
+;;   (keyfreq-autosave-mode 1))
+
+(use-package magit
+  :init
+  (if (or (equal system-type 'gnu/linux) (equal system-type 'darwin))
+      (progn
+	(setq exec-path (append exec-path '("/usr/bin/")))
+	(setq magit-git-executable (expand-file-name "/usr/bin/git")) 
+	)
+    (progn
+      ;;(setenv "SSH_ASKPASS" "git-gui--askpass")
+      (setq magit-git-executable (concat user--win-git-folder "git.exe"))
+      (add-to-list 'exec-path (concat user--win-git-folder "C:/development/tools/git/bin"))
+      )
+    )
+  :bind
+  (("C-x g" . magit-status)))
+
+(use-package monky
+  :bind
+  (("C-h g" . monky-status)))
 
 ;;; tools.el ends here

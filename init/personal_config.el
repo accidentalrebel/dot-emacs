@@ -73,6 +73,3 @@
 
 (setq shell-command-switch "-ic")
 
-(when (eq system-type 'darwin)
-  (setq mac-command-modifier 'control)
-  (setq mac-control-modifier 'super))

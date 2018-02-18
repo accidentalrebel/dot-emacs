@@ -6,7 +6,7 @@
 				 (arglist-cont-nonempty . 0)
 				 (arglist-close . 0)
 				 (cpp-macro . 0))))
-  "My haXe Programming Style.")
+    "My haXe Programming Style.")
 
   (add-hook 'haxe-mode-hook 'haxe-imports-scan-file)
   (add-hook 'haxe-mode-hook (lambda () (setq truncate-lines t)))
@@ -17,8 +17,7 @@
 			       (setq tab-width 4)
 			       (setq indent-tabs-mode t)
 			       (setq fill-column 80)
-			       (local-set-key [(return)] 'newline-and-indent))))
-  )
+			       (local-set-key [(return)] 'newline-and-indent)))))
 
 (use-package haxe-imports
   :config

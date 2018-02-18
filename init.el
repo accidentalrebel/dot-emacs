@@ -8,8 +8,7 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
-;;(setq load-prefer-newer t)
-
+(setq load-prefer-newer t)
 (prefer-coding-system 'utf-8)
 
 (if (file-exists-p "~/.cask/cask.el")
@@ -21,16 +20,13 @@
 
 (require 'use-package)
 
-;; I have placed certain chunks of init on different .el files
-;; This is to avoid having a really long .emacs file
 (when (file-exists-p "~/.emacs.d/user.el")
   (load "~/.emacs.d/user.el"))
 
-(load "~/.emacs.d/init/haxe_mode")
-(load "~/.emacs.d/init/versioning")
+(load "~/.emacs.d/init/bootstrap")
 (load "~/.emacs.d/init/tools")
-(load "~/.emacs.d/init/keybindings")
 (load "~/.emacs.d/init/org_mode")
+(load "~/.emacs.d/init/haxe_mode")
 (load "~/.emacs.d/init/dev_scripts")
 (load "~/.emacs.d/init/personal_scripts")
 (load "~/.emacs.d/init/personal_config")
@@ -145,4 +141,5 @@
 
 (set-face-attribute 'default nil :height 155)
 
-(arebel-show-splash-screen)
+(when (fboundp 'arebel-show-splash-screen)
+  (arebel-show-splash-screen))
