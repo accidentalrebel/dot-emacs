@@ -13,18 +13,20 @@
   (setq projectile-enable-caching t)
   (setq projectile-indexing-method 'alien)
   :config
-  (counsel-projectile-mode)
-  :bind (("C-c p p" . counsel-projectile-switch-project)
-	 ("C-c p f" . counsel-projectile-find-file)
-	 ("C-c p g" . projectile-ripgrep)))
+  (counsel-projectile-mode))
 
-(use-package ripgrep
-  :bind (("C-c g" . ripgrep-regexp)))
+(use-package ripgrep)
 
-(use-package projectile-ripgrep)
+(use-package projectile-ripgrep
+  :bind (("C-c g" . projectile-ripgrep)))
 
 (use-package swiper
-  :bind (("M-s s" . swiper)))
+  :preface
+  (defun swiper-at-point ()
+    (interactive)
+    (swiper (thing-at-point 'word)))
+  :bind (("M-s s" . swiper)
+	 ("M-s M-s" . swiper-at-point)))
 
 (use-package rainbow-delimiters
    :hook ((emacs-lisp-mode . rainbow-delimiters-mode)))
@@ -46,13 +48,13 @@
 
 (use-package golden-ratio
   :config
+  (add-to-list 'golden-ratio-extra-commands 'ace-window)
   (golden-ratio-mode))
 
 (use-package flycheck
   :hook ((flycheck-mode . flycheck-rust-setup)
 	 (emacs-lisp-mode . flycheck-mode)
-	 (rust-mode . flycheck-mode)
-	 (csharp-mode . flycheck-mode)))
+	 (rust-mode . flycheck-mode)))
 
 (use-package eshell
   :init
@@ -80,8 +82,37 @@
   (setq company-dabbrev-downcase nil)
   (setq company-idle-delay 0.5)
   :config
-  (add-to-list 'company-backends 'company-omnisharp)
-  :hook ((after-init . global-company-mode)))
+  (add-to-list 'company-backends 'company-omnisharp))
+;;  :hook ((after-init . global-company-mode)))
+
+(use-package company-quickhelp
+  :config
+  (company-quickhelp-mode))
+
+(use-package omnisharp)
+  ;; :config
+  ;; (add-hook 'csharp-mode-hook 'omnisharp-mode))
+
+(use-package csharp-mode
+  :config
+  (add-hook 'csharp-mode-hook (lambda()
+				(omnisharp-mode)
+				(company-mode)
+				(flycheck-mode)
+
+				;; (setq indent-tabs-mode nil)
+				;; (setq c-syntactic-indentation t)
+				(c-set-style "ellemtel")
+				;; (setq c-basic-offset 4)
+				;; (setq tab-width 4)
+				(setq truncate-lines t)
+
+				(local-set-key (kbd "C-c r r") 'omnisharp-run-code-action-refactoring)
+				(local-set-key (kbd "C-c C-c") 'recompile))))
+
+(use-package rust-mode
+  :init
+  (setq rust-format-on-save t))
 
 (use-package racer
   :init
@@ -89,7 +120,7 @@
   (setq racer-rust-src-path (expand-file-name "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"))
   :hook ((rust-mode . racer-mode)
 	 (racer-mode . eldoc-mode)
-	 (racer-mode . company-mode)))
+	 (racer-mode . company-modea)))
 
 (use-package eww
   :init
@@ -103,6 +134,5 @@
   :config
   (exec-path-from-shell-initialize))
 
-(use-package csharp-mode)
 (use-package restart-emacs)
 (use-package hackernews)

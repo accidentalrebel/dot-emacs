@@ -326,12 +326,11 @@
 (use-package company
   :diminish (company-mode . "")
   :init
-  (setq company-dabbrev-downcase nil)  
+  (setq company-dabbrev-downcase nil)
   (setq company-idle-delay 0.5)
   (add-hook 'after-init-hook 'global-company-mode)
   :config
-  (add-to-list 'company-backends 'company-omnisharp)
-  )
+  (add-to-list 'company-backends 'company-omnisharp))
 
 (use-package eshell-up)
 (use-package hackernews)
