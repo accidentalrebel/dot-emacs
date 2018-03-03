@@ -99,6 +99,7 @@
 				(omnisharp-mode)
 				(company-mode)
 				(flycheck-mode)
+				(abbrev-mode)
 
 				;; (setq indent-tabs-mode nil)
 				;; (setq c-syntactic-indentation t)
@@ -120,7 +121,7 @@
   (setq racer-rust-src-path (expand-file-name "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"))
   :hook ((rust-mode . racer-mode)
 	 (racer-mode . eldoc-mode)
-	 (racer-mode . company-modea)))
+	 (racer-mode . company-mode)))
 
 (use-package eww
   :init

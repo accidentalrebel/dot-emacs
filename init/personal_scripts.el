@@ -6,21 +6,21 @@ Closes all buffers and opens Hackernews, Elfeed, Calendar, Org-Agenda, and Speed
   (switch-to-buffer "*splash*")
   (delete-other-windows)
 
-  (calendar)
   (split-window-vertically)
+  (other-window 1)
+  (calendar)
   (split-window-horizontally)
   (other-window 1)
   (org-agenda-list)
-  (other-window 2)
+  (other-window 1)
+  (sleep-for 1)
   (switch-to-buffer "*hackernews top stories*")
   (hackernews 10)
   (split-window-horizontally)
   (other-window 1)
-  ;(elfeed)
   (goto-char (point-min))
-  (other-window 3)
   (speed-type-text))
-
+  
 (defun arebel-quick-notes-to-journal-entry ()
   (interactive)
   "Converts notes made through Ogzly to Org-Journal entries."
