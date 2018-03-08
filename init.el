@@ -35,6 +35,13 @@
 (when (file-exists-p "~/.emacs.d/dev/haxe-tools/haxe-tools.el")
   (require 'haxe-tools "~/.emacs.d/dev/haxe-tools/haxe-tools"))
 
+(when (file-exists-p "~/development/projects/elisp/cobalt/cobalt.el")
+  (load "~/development/projects/elisp/cobalt/cobalt.el"))
+
+(use-package cobalt
+  :init
+  (setq cobalt-site-paths '("~/blogs/testblog" "~/blogs/cobalt-org.github.io/" "~/blogs/accidentalrebel.github.com/")))
+
 (server-start)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -87,7 +94,7 @@
  '(org-fontify-whole-heading-line t)
  '(package-selected-packages
    (quote
-    (company-quickhelp org-journal projectile-ripgrep omnisharp yasnippet-snippets cargo ghub pocket-reader smex ripgrep cask racer csharp-mode powerline json-reformat json-snatcher flycheck-rust rust-mode doom-themes smart-mode-line-powerline-theme smart-mode-line simpleclip eww-lnum google-this request speed-type haxe-mode swiper hackernews async deferred git-commit markdown-mode company request-deferred drag-stuff expand-region flycheck-cask free-keys goto-chg idle-highlight-mode multiple-cursors eshell-up ivy-hydra counsel-projectile counsel ivy coin-ticker ido-vertical-mode flycheck-package keyfreq golden-ratio gotham-theme dired-du org s undo-tree websocket yaml-mode hydra list-unicode-display diminish magit-popup nyan-mode imgur twittering-mode elmacro csv-mode all-the-icons flycheck package-build restart-emacs smartparens web-mode o-blog org-page sudoku open-junk-file json-mode which-key ag with-editor yasnippet pallet php-mode f 2048-game ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode haxe-imports evil-smartparens magit evil better-defaults ##)))
+    (pdf-tools pomidor monky company-quickhelp org-journal projectile-ripgrep omnisharp yasnippet-snippets cargo ghub pocket-reader smex ripgrep cask racer csharp-mode powerline json-reformat json-snatcher flycheck-rust rust-mode doom-themes smart-mode-line-powerline-theme smart-mode-line simpleclip eww-lnum google-this request speed-type haxe-mode swiper hackernews async deferred git-commit markdown-mode company request-deferred drag-stuff expand-region flycheck-cask free-keys goto-chg idle-highlight-mode multiple-cursors eshell-up ivy-hydra counsel-projectile counsel ivy coin-ticker ido-vertical-mode flycheck-package keyfreq golden-ratio gotham-theme dired-du org s undo-tree websocket yaml-mode hydra list-unicode-display diminish magit-popup nyan-mode imgur twittering-mode elmacro csv-mode all-the-icons flycheck package-build restart-emacs smartparens web-mode o-blog org-page sudoku open-junk-file json-mode which-key ag with-editor yasnippet pallet php-mode f 2048-game ace-window rainbow-delimiters exec-path-from-shell use-package slack org-pomodoro synosaurus dokuwiki markdown-mode+ org2blog avy dokuwiki-mode haxe-imports evil-smartparens magit evil better-defaults ##)))
  '(send-mail-function nil)
  '(tramp-syntax (quote default) nil (tramp))
  '(vc-annotate-background "#1B2229")
