@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: AssertIfNullFields
+# key: assfie
+# --
+string[] fieldsToCheck = {
+	 $1
+};
+MiscUtils.AssertIfNullFields(this, fieldsToCheck);

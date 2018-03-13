@@ -81,13 +81,15 @@
   :init
   (setq company-dabbrev-downcase nil)
   (setq company-idle-delay 0.5)
-  :config
-  (add-to-list 'company-backends 'company-omnisharp))
+  (setq company-tooltip-idle-delay 0.5)
+  ;; :config
+  ;; (add-to-list 'company-backends 'company-omnisharp)
+  )
 ;;  :hook ((after-init . global-company-mode)))
 
-(use-package company-quickhelp
-  :config
-  (company-quickhelp-mode))
+(use-package company-quickhelp)
+  ;;:config
+  ;;(company-quickhelp-mode))
 
 (use-package omnisharp)
   ;; :config
@@ -96,10 +98,23 @@
 (use-package csharp-mode
   :config
   (add-hook 'csharp-mode-hook (lambda()
+				;;(company-quickhelp-mode)
 				(omnisharp-mode)
-				(company-mode)
-				(flycheck-mode)
-				(abbrev-mode)
+				(global-company-mode)
+				(add-to-list 'company-backends 'company-omnisharp)
+				;;(company-quickhelp-mode)
+
+				;; (flycheck-mode)
+				;; (abbrev-mode)
+
+				(setq auto-complete-mode nil)
+				(setq company-frontends '(
+							  company-pseudo-tooltip-frontend
+							  ;;company-quickhelp-frontend
+							  ;;company-echo-metadata-frontend
+							  ;;company-pseudo-tooltip-unless-just-one-frontend-with-delay
+							  ;;company-preview-frontend))
+							  ))
 
 				;; (setq indent-tabs-mode nil)
 				;; (setq c-syntactic-indentation t)
