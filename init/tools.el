@@ -103,9 +103,13 @@
 				(setq c-syntactic-indentation t)
 				(c-set-style "ellemtel")
 				(setq c-basic-offset 4)
-				(setq tab-width 4)
 				(setq truncate-lines t)
-
+				(setq tab-width 4)
+			
+				(local-set-key (kbd "C-c r s") '(lambda()
+								  (omnisharp-reload-solution)
+								  (revert-buffer t t)))
+				(local-set-key (kbd "C-c r f") 'omnisharp-code-format-entire-file)
 				(local-set-key (kbd "C-c r r") 'omnisharp-run-code-action-refactoring)
 				(local-set-key (kbd "C-c C-c") 'recompile))))
 
