@@ -81,46 +81,29 @@
   :init
   (setq company-dabbrev-downcase nil)
   (setq company-idle-delay 0.5)
-  (setq company-tooltip-idle-delay 0.5)
-  ;; :config
-  ;; (add-to-list 'company-backends 'company-omnisharp)
-  )
-;;  :hook ((after-init . global-company-mode)))
-
-(use-package company-quickhelp)
-  ;;:config
-  ;;(company-quickhelp-mode))
+  (setq company-tooltip-idle-delay 0.5))
 
 (use-package omnisharp)
-  ;; :config
-  ;; (add-hook 'csharp-mode-hook 'omnisharp-mode))
 
 (use-package csharp-mode
+  :after (omnisharp company)
   :config
   (add-hook 'csharp-mode-hook (lambda()
-				;;(company-quickhelp-mode)
 				(omnisharp-mode)
-				(global-company-mode)
+				(company-mode)
 				(add-to-list 'company-backends 'company-omnisharp)
-				;;(company-quickhelp-mode)
 
-				;; (flycheck-mode)
-				;; (abbrev-mode)
+				(flycheck-mode)
+				(abbrev-mode)
 
-				(setq auto-complete-mode nil)
-				(setq company-frontends '(
-							  company-pseudo-tooltip-frontend
-							  ;;company-quickhelp-frontend
-							  ;;company-echo-metadata-frontend
-							  ;;company-pseudo-tooltip-unless-just-one-frontend-with-delay
-							  ;;company-preview-frontend))
-							  ))
+				(setq company-frontends '(company-echo-metadata-frontend
+							  company-preview-frontend))
 
-				;; (setq indent-tabs-mode nil)
-				;; (setq c-syntactic-indentation t)
+				(setq indent-tabs-mode nil)
+				(setq c-syntactic-indentation t)
 				(c-set-style "ellemtel")
-				;; (setq c-basic-offset 4)
-				;; (setq tab-width 4)
+				(setq c-basic-offset 4)
+				(setq tab-width 4)
 				(setq truncate-lines t)
 
 				(local-set-key (kbd "C-c r r") 'omnisharp-run-code-action-refactoring)

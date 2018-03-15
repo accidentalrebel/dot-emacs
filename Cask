@@ -11,7 +11,6 @@
 (depends-on "cargo")
 (depends-on "cask")
 (depends-on "company")
-(depends-on "company-quickhelp")
 (depends-on "counsel")
 (depends-on "counsel-projectile")
 (depends-on "csharp-mode")
