@@ -107,6 +107,7 @@
 				(setq tab-width 4)
 			
 				(local-set-key (kbd "C-c r s") '(lambda()
+								  (interactive)
 								  (omnisharp-reload-solution)
 								  (revert-buffer t t)))
 				(local-set-key (kbd "C-c r f") 'omnisharp-code-format-entire-file)
@@ -125,7 +126,10 @@
 	 (racer-mode . eldoc-mode)
 	 (racer-mode . company-mode)))
 
+(use-package eww-lnum)
+
 (use-package eww
+  :after eww-lnum
   :init
   (setq shr-color-visible-luminance-min 70)
   (setq shr-use-fonts nil)
@@ -139,3 +143,34 @@
 
 (use-package restart-emacs)
 (use-package hackernews)
+
+(use-package multiple-cursors)
+
+(use-package pomidor
+  :init
+  (setq pomidor-play-sound-file
+	(lambda (file))))
+
+(use-package slack
+  :commands (slack-start)
+  :init
+  (setq slack-buffer-emojify nil)
+  (setq slack-prefer-current-team t)
+  :config
+  (slack-register-team
+   :name "emacs-slack"
+   :default t
+   :client-id user--slack-client-id
+   :client-secret user--slack-client-secret
+   :token user--slack-client-token
+   :subscribed-channels '(chefwars_dev)
+   :full-and-display-names t
+   )
+
+  (use-package alert
+  :commands (alert)
+  :init
+  (setq alert-default-style 'notifier))
+  )
+
+;;
