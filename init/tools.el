@@ -1,4 +1,21 @@
-(use-package magit
+;; (require 'epa-file)
+;; (epa-file-enable)
+
+;; (setq epa-file-select-keys nil)
+;; (setq epa-pinentry-mode 'loopback)
+
+;; (use-package org-journal
+;;   :init
+;;   (setq org-journal-enable-encryption t))
+
+(use-package org-crypt
+  :init
+  (setq org-tags-exclude-from-inheritance (quote ("crypt")))
+  (setq org-crypt-key "accidentalrebel@protonmail.com")
+  :config
+  (org-crypt-use-before-save-magic))
+
+(use-package magitgpg
   :bind (("C-x g" . magit-status)))
 
 (use-package counsel
@@ -172,5 +189,13 @@
   :init
   (setq alert-default-style 'notifier))
   )
+
+(use-package pomodoro
+  :init
+  (setq use-dialog-box nil)
+  (setq pomodoro-play-sounds nil)
+  (setq pomodoro-sound-player nil)
+  :config
+  (pomodoro-add-to-mode-line))
 
 ;;

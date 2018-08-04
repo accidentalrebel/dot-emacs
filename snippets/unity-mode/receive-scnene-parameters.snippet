@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: ReceiveSceneParameters
+# key: sceneparams
+# --
+public override void ReceiveSceneParameters(SceneParameters sceneParameters)
+{
+	Assert.IsNotNull(sceneParameters);
+	$0 = GetSceneParameter<$2>("$1", sceneParameters);
+}
